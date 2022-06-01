@@ -1,8 +1,6 @@
-import React from 'react'
-import AppRoutes from '../src/Routes/AppRoutes'
+import React from 'react';
+import AppRoutes from './Routes/AppRoutes';
 
-export default function PrivateRoutesApp() {
-    return (
-        <AppRoutes />
-    )
-}
+export const PrivateRoutesApp = () => {
+    return <AppRoutes />;
+};

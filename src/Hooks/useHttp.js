@@ -4,6 +4,7 @@ const useHttp = (requestFunction, params = {}) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [data, setData] = useState(null)
+
     const request = async () => {
         setLoading(true)
         setError(null)
@@ -12,14 +13,14 @@ const useHttp = (requestFunction, params = {}) => {
             setLoading(false)
             setData(response)
             return response
-        } catch (err) {
+        } catch (error) {
             setLoading(false)
-            setError(err)
+            setError(error)
         }
 
     }
     return {
-        loading, request, err, data
+        loading, request, error, data
     }
 }
 

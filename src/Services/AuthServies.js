@@ -1,15 +1,14 @@
-import React from 'react'
 import axios from 'axios'
 const urlApi = process.env.REACT_APP_URL_API
 
-const validToken = ({ token }) => {
-    const result = await axios.get(`${urlApi}/auth/validToken`, {},
+const validToken = async ({ token }) => {
+    const result = await axios.get(`${urlApi}/auth/validtoken`, {},
         {
             headers: {
                 token,
             }
         })
-    return result
+    return result.data
 }
 
 

@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PrivateRoutes from './PrivateRoutes'
 import DashboardRoutes from './DashboardRoutes'
 import PublicRoutes from './PublicRoutes'
 import AuthRoutes from './AuthRoutes'
 import validToken from '../Services/AuthServies'
+import useHttp from '../Hooks/useHttp'
 
 const AppRoutes = () => {
     const token = localStorage.getItem('token')
@@ -13,7 +14,6 @@ const AppRoutes = () => {
     useEffect(() => {
         request()
     }, [])
-    console.log(err);
     if (loading) {
         <div>cargando</div>
     }
