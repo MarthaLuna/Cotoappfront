@@ -1,0 +1,6 @@
+@use "../../colors";
+@import "~bootstrap/scss/bootstrap";
+
+#Home-Container{
+    background: colors.$grey;
+}

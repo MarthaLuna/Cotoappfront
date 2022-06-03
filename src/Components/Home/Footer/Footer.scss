@@ -1,0 +1,21 @@
+@use "../../../colors";
+@import "~bootstrap/scss/bootstrap";
+
+#footer-container {
+  background: colors.$white;
+  #footer-thin-white-line {
+    height: "2px";
+  }
+}
+
+#footer-cotoApp-name {
+  color: colors.$salmon;
+}
+
+#footer-smallText {
+  color: colors.$grey;
+}
+
+#footer-thin-grey-line {
+  background: colors.$grey;
+}

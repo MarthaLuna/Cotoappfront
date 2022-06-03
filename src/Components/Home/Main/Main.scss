@@ -1,0 +1,15 @@
+@use "../../../colors";
+@import "~bootstrap/scss/bootstrap";
+
+body{
+    background:colors.$grey;
+}
+
+.Body-Content,.Body{
+    height:80vh;
+}
+
+p{
+    color:colors.$white;
+    text-align: justify;
+}
