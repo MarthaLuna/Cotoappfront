@@ -9,6 +9,7 @@ import { PublicRoutes } from './PublicRoutes';
 
 export const AppRoutes = () => {
   const token = localStorage.getItem('token');
+  console.log(token)
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { loading, request, error, data } = useHttp(validToken, { token });
 
