@@ -53,7 +53,7 @@ const LoginPage = () => {
                     name='email'
                     placeholder='email'
                 ></input>
-                {errors.email && <span> Ingresa un email valdio</span>}
+                {errors.email && <span> Ingresa un email valido</span>}
                 <input
                     type='password'
                     value={values.password}
