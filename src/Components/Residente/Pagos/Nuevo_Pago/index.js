@@ -1,0 +1,1 @@
+export {Nuevo_Pago} from './Nuevo_Pago';

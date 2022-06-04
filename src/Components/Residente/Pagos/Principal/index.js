@@ -1,1 +1,1 @@
-import {Principal} from './Principal';
+export {Principal} from './Principal';

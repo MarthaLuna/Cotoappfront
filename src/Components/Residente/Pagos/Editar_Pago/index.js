@@ -1,0 +1,1 @@
+export {Editar_Pago} from './Editar_Pago';
