@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { useHttp } from '../../Hooks/useHttp';
 import { loginRequest } from './Services/LoginService';
 
+
+
+
 export const LoginPage = () => {
   const navigate = useNavigate();
 
@@ -27,14 +30,17 @@ export const LoginPage = () => {
     password: values.password,
   });
 
+ 
   useEffect(() => {
     if (data.success) {
       localStorage.setItem('token', data.payload);
+    
       navigate('/');
     }
   }, [data]);
 
   return (
+   
     <div style={{ width: '100%', height: '100vh' }}>
       <form
         onSubmit={handleSubmit}
@@ -63,5 +69,6 @@ export const LoginPage = () => {
         <button type='submit'>login</button>
       </form>
     </div>
+   
   );
 };

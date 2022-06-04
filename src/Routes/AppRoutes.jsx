@@ -6,8 +6,13 @@ import { AuthRoutes } from './AuthRoutes';
 import { DashboardRoutes } from './DashboardRoutes';
 import { PrivateRoutes } from './PrivateRoutes';
 import { PublicRoutes } from './PublicRoutes';
+import { Home } from '../Components/Home/Home';
+import useUser from '../Hooks/useUser';
+import { UserContext } from '../context/UserContext';
 
 export const AppRoutes = () => {
+  const user = useUser();
+  console.log(user);
   const token = localStorage.getItem('token');
   console.log(token)
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -28,6 +33,7 @@ export const AppRoutes = () => {
   }
 
   return (
+    <UserContext.Provider value={token}>
     <BrowserRouter>
       <Routes>
         <Route
@@ -46,7 +52,16 @@ export const AppRoutes = () => {
             </PrivateRoutes>
           }
         />
+         <Route
+          path='/'
+          element={
+           
+              <Home />
+           
+          }
+        />
       </Routes>
     </BrowserRouter>
+    </UserContext.Provider>
   );
 };
