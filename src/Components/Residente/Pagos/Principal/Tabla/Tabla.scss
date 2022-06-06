@@ -1,0 +1,30 @@
+@use "../../../../colors";
+@import "~bootstrap/scss/bootstrap";
+
+#tabla-pagos{
+    border-radius:20px;
+}
+
+tr,th,td{
+    border:none;
+}
+
+#editar{
+    color:base.$dark-aqua;
+}
+
+#borrar{
+    color:base.$salmon;
+}
+
+th{
+    color:base.$green-grey;
+}
+
+td{
+    color:base.$grey
+}
+
+tbody{
+    border-top:3px solid base.$grey !important;
+}
