@@ -34,34 +34,34 @@ export const AppRoutes = () => {
 
   return (
     <UserContext.Provider value={token}>
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path='/auth/*'
-          element={
-            <PublicRoutes isLoggedIn={isLoggedIn}>
-              <AuthRoutes />
-            </PublicRoutes>
-          }
-        />
-        <Route
-          path='/*'
-          element={
-            <PrivateRoutes isLoggedIn={isLoggedIn}>
-              <DashboardRoutes />
-            </PrivateRoutes>
-          }
-        />
-         <Route
-          path='/'
-          element={
-           
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path='/auth/*'
+            element={
+              <PublicRoutes isLoggedIn={isLoggedIn}>
+                <AuthRoutes />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path='/*'
+            element={
+              <PrivateRoutes isLoggedIn={isLoggedIn}>
+                <DashboardRoutes />
+              </PrivateRoutes>
+            }
+          />
+          <Route
+            path='/'
+            element={
+
               <Home />
-           
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </UserContext.Provider>
   );
 };
