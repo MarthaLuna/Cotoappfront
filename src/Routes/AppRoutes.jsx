@@ -85,6 +85,34 @@ export const AppRoutes = () => {
        
       </Routes>
     </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path='/auth/*'
+            element={
+              <PublicRoutes isLoggedIn={isLoggedIn}>
+                <AuthRoutes />
+              </PublicRoutes>
+            }
+          />
+          <Route
+            path='/*'
+            element={
+              <PrivateRoutes isLoggedIn={isLoggedIn}>
+                <DashboardRoutes />
+              </PrivateRoutes>
+            }
+          />
+          <Route
+            path='/'
+            element={
+
+              <Home />
+
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </UserContext.Provider>
   );
 };
