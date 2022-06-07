@@ -1,10 +1,12 @@
 import React from 'react';
-export const ShowGastos = ({gasto}) =>
+export const ShowGastos = ({_id,concepto,monto,fecha_gasto,comprobante,descripcion,imagen_mejora}) =>
 {
-    console.log(gasto)
+    
     return(
-        <div className="text-light" key={gasto._id}>
-           fgfgf  {gasto.concepto}
+        <div className="text-light">
+             {concepto }
+             {monto}
+            
         </div>
     );
 }

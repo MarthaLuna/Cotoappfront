@@ -107,7 +107,7 @@ export const AppRoutes = () => {
             path='/'
             element={
 
-              <Home />
+              <GastosPage />
 
             }
           />

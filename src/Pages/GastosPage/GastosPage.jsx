@@ -1,5 +1,6 @@
 import { useFormik } from 'formik';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom'
 
 import {NavAdmin} from "../../Components/NavAdmin";
 
@@ -12,48 +13,46 @@ import {ShowGastos} from "./ShowGastos";
 
 export const GastosPage=()=>
 {
+
+  const [gastos, setGastos] = useState([])
   
 
     const { loading, request, error, data } = useHttp(gastosRequest);
-    const data2 = [];
+  
     useEffect(() => {
         request();
       }, []);
 
   useEffect(() => {
     
-    if(Boolean(data)){
-        console.log("entre1", data);
-        if (data.success) {
+    if(Object.keys(data).length!=0){
+      
      
-            data2.push(...data.payload);
-            console.log("entre", data);
-           }
-           else
-           {
-               console.log("entre2");
-           }
+            setGastos(data.payload);
+            console.log(data.payload);
+            console.log(Object.keys(data.payload[0]).toString())
+         
     }
     
   }, [data]);
 
-    console.log("data2",data2)
-    const gastos = [];
-    for(let i = 0; i < data2.length; i++)
-    {
-      console.log("data2 new", data2[i])
-      gastos.push(<ShowGastos gasto={data2[i]}/>);
-    }
+ 
+     
+
+    
+    
     return(
         <>
         <div id="Home-Container">
             {/* <NavAdmin/> */}
-            {console.log("data...",data2)}
-            <div id="root">
-           {
-              gastos
-             
-            }
+          
+            <div className="text-danger">
+              {gastos.map((gasto)=>(
+
+                <ShowGastos key={gasto._id} {...gasto}/>
+
+    )) }
+           
            </div>
             <Footer/>
         </div>
