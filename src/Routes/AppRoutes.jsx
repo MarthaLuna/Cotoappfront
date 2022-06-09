@@ -96,18 +96,18 @@ export const AppRoutes = () => {
             }
           />
           <Route
-            path='/*'
+            path='/admin/*'
             element={
-              <PrivateRoutes isLoggedIn={isLoggedIn}>
-                <DashboardRoutes />
-              </PrivateRoutes>
+              <AdminRoutes isLoggedIn={isLoggedIn}>
+                <AdministratosRoutes />
+              </AdminRoutes>
             }
           />
           <Route
             path='/'
             element={
 
-              <GastosPage />
+              < Home />
 
             }
           />

@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { ResidentesPage } from '../Pages/Residentes/ResidentesPage';
 import { AdminHome} from '../Pages/AdminHome/AdminHome';
 import { GastosPage } from '../Pages/GastosPage/GastosPage';
+import ControlGastos  from '../Components/Admin/ControlGastos/ControlGastos';
 
 export const AdministratosRoutes = () => {
   return (
@@ -13,6 +14,8 @@ export const AdministratosRoutes = () => {
      
       <Route path='/adminHome' element={<AdminHome />} />
       <Route path='/gastos' element={< GastosPage/>} />
+      <Route path='/controlGastos' element={< ControlGastos/>} />
+       
     </Routes>
   );
 };
