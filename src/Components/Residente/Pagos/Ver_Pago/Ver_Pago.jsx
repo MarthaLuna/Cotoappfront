@@ -2,14 +2,14 @@ import React from 'react';
 
 import {Footer} from '../../../Home/Footer';
 import {Navbar} from '../Principal/Navbar';
-import {Formulario_Pago} from './Formulario_Pago';
+import {Formulario_VerPago} from './Formulario_VerPago';
 
 export const Nuevo_Pago =()=>
 {
     return(
         <div id="Principal-Container">
             <Navbar/>
-            <Formulario_Pago/>
+            <Formulario_VerPago/>
             <Footer/>
         </div>
     );

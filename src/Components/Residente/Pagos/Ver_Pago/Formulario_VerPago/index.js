@@ -1,0 +1,1 @@
+export {Formulario_VerPago} from './Formulario_VerPago';
