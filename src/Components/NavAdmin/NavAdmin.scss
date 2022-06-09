@@ -1,0 +1,17 @@
+@use "../../colors";
+@import "~bootstrap/scss/bootstrap";
+
+#Navbar-container{
+    background: colors.$salmon;
+}
+
+#navbar-cotoApp-name,#coto-name
+{
+    color:colors.$white;
+}
+
+#link_nav
+{
+    text-decoration: none;
+    color: white;
+}

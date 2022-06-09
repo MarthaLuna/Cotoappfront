@@ -6,6 +6,7 @@ export const useHttp = (requestFunction, params = {}) => {
   const [data, setData] = useState({});
 
   const request = async () => {
+    console.log("funcion",requestFunction);
     setLoading(true);
     setError(null);
     try {

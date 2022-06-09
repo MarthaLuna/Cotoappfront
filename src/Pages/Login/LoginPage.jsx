@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { useHttp } from '../../Hooks/useHttp';
 import { loginRequest } from './Services/LoginService';
 
-
-
+import {Navbar} from "../../Components/Home/Navbar";
+import {Footer} from "../../Components/Home/Footer";
+import "./Login.scss";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
@@ -40,35 +41,47 @@ export const LoginPage = () => {
   }, [data]);
 
   return (
-   
-    <div style={{ width: '100%', height: '100vh' }}>
+   <>
+   <div id='Home-Container'>
+    <Navbar/>
+    <div className='LoginMain'>
+    <div className='LoginContainer'>
+    <div className='LoginContent'>
       <form
         onSubmit={handleSubmit}
         style={{
           display: 'flex',
           flexDirection: 'column',
-          width: '50%',
-          height: '50%',
+          alignItems: 'center',
+          
         }}
       >
+        <span>User</span>
         <input
           type='email'
           value={values.email}
           onChange={handleChange}
           name='email'
-          placeholder='email'
+          
         ></input>
         {errors.email && <span> Ingresa un email valdio</span>}
+        <span>Password</span>
         <input
           type='password'
           value={values.password}
           onChange={handleChange}
           name='password'
-          placeholder='password'
+          
         ></input>
-        <button type='submit'>login</button>
+        <button id='button_login' type='submit'>Login</button>
       </form>
     </div>
+    </div>
+    </div>
+    <Footer/>
+    </div>
+    </>
+    
    
   );
 };
