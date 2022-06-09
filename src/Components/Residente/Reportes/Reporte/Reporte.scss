@@ -1,4 +1,4 @@
-@use "../../../../../colors";
+@use "../../../colors";
 @import "~bootstrap/scss/bootstrap";
 
 .Body-Content{
@@ -6,16 +6,16 @@
 }
 
 .red-button{
-    background:colors.$salmon;
-    color:colors.$white;
-    border: 1px solid colors.$white;
+    background:base.$salmon;
+    color:base.$white;
+    border: none;
     border-radius:4px;
     padding: 6px 10px;
     transition:.2s;
 }
 
 .red-button:hover{
-    background:colors.$white;
-    color:colors.$salmon;
+    background:base.$white;
+    color:base.$salmon;
     transition:.2s;
 }

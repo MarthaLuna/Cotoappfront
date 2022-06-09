@@ -1,4 +1,4 @@
-@use "../../../../colors";
+@use "../../../../../colors";
 @import "~bootstrap/scss/bootstrap";
 
 #tabla-pagos{
@@ -10,21 +10,21 @@ tr,th,td{
 }
 
 #editar{
-    color:base.$dark-aqua;
+    color:colors.$dark-aqua;
 }
 
 #borrar{
-    color:base.$salmon;
+    color:colors.$salmon;
 }
 
 th{
-    color:base.$green-grey;
+    color:colors.$green-grey;
 }
 
 td{
-    color:base.$grey
+    color:colors.$grey
 }
 
 tbody{
-    border-top:3px solid base.$grey !important;
+    border-top:3px solid colors.$grey !important;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import Residente from '../Components/Residente/Pagos/Principal/Principal';
+import {Principal} from '../../Components/Residente/Pagos/Principal';
 
 export const ResidentesPage = () => {
-  return <Residente/>;
+  return <Principal/>;
 };

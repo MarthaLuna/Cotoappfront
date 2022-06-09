@@ -7,7 +7,7 @@ export const Navbar =()=>{
     return(
         <Navbar2 className="mb-2" sticky="top" id="Navbar-container">
             <Container className="d-flex justify-content-around">
-                <Navbar2.Brand className="me-0" id="navbar-cotoApp-name" href="#home">CotoApp</Navbar2.Brand>
+                <Navbar2.Brand className="me-0" id="navbar-cotoApp-name" href="/"><img  src={require("../../../../../images/logo.jpg")} alt="logo" width="50px"></img></Navbar2.Brand>
                 <div className="d-flex w-50 ms-2">
                     <div className="" id="Reporte-Pagos">Pagos</div>
                     <div className="ms-4" id="Reporte-Gastos">Reportes</div>
