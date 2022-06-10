@@ -9,6 +9,7 @@ import React from 'react'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
+import { Link } from 'react-router-dom';
 
 const RegistrarGasto = () => {
     return (
@@ -101,7 +102,9 @@ const RegistrarGasto = () => {
                                 </Card.Body>
                             </Card>
                             <Button className='m-2' variant="primary">Limpiar <BsFillBackspaceFill /></Button>{' '}
-                            <Button className='m-2' variant="dark">Cancelar <TiCancel /></Button>{' '}
+                            <Link to="/control-gastos">
+                                <Button className='m-2' variant="dark">Cancelar <TiCancel /></Button>{' '}
+                            </Link>
                         </div>
 
 

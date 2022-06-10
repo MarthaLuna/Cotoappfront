@@ -1,0 +1,1 @@
+export {Registrar_Pago} from "./Registrar_Pago";

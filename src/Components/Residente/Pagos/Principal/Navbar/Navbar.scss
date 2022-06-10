@@ -1,0 +1,11 @@
+@use "../../../../../colors";
+@import "~bootstrap/scss/bootstrap";
+
+#Navbar-container{
+    background: colors.$salmon;
+}
+
+#navbar-cotoApp-name,#Reporte-Pagos,#Reporte-Gastos
+{
+    color:colors.$white;
+}

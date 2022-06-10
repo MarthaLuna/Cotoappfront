@@ -1,4 +1,5 @@
 import React from "react";
+import { Principal } from "../../Components/Residente/Pagos/Principal";
 
 import {NavAdmin} from "../../Components/NavAdmin";
 

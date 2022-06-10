@@ -3,6 +3,7 @@ import React from 'react'
 import Dropdown from 'react-bootstrap/Dropdown';
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
+import { Link } from 'react-router-dom';
 
 
 const ControlGastos = () => {
@@ -35,12 +36,14 @@ const ControlGastos = () => {
                                 <h2 className="position-absolute top- start-50 translate-middle ">
                                     Control de Gastos
                                 </h2>
-                                <button type="button" className="red-button ">
-                                    <span >
-                                        Registrar Gasto
-                                        <i className="ms-2 bi bi-plus-circle"></i>
-                                    </span>
-                                </button>
+                                <Link to="/registrar-gasto">
+                                    <button type="button" className="red-button ">
+                                        <span >
+                                            Registrar Gasto
+                                            <i className="ms-2 bi bi-plus-circle"></i>
+                                        </span>
+                                    </button>
+                                </Link>
                             </div>
                             <div className="d-flex justify-content-between p-2 ">
                                 <div className='d-flex justify-content-between'>
@@ -102,7 +105,9 @@ const ControlGastos = () => {
                                                     <i className="me-3 bi bi-eye-fill m-0 p-0"></i>
                                                 </h3>
                                                 <h3 className="m-0 p-0">
-                                                    <i className="me-3 bi bi-pencil-fill" id="editar"></i>
+                                                    <Link to="/editar-gasto">
+                                                        <i className="me-3 bi bi-pencil-fill" id="editar"></i>
+                                                    </Link>
                                                 </h3>
                                                 <h3 className="m-0 p-0">
                                                     <i className="bi bi-trash-fill" id="borrar"></i>

@@ -1,0 +1,21 @@
+@use "../../../../../colors";
+@import "~bootstrap/scss/bootstrap";
+
+.Body-Content{
+    height:80vh;
+}
+
+.red-button{
+    background:colors.$salmon;
+    color:colors.$white;
+    border: 1px solid colors.$white;
+    border-radius:4px;
+    padding: 6px 10px;
+    transition:.2s;
+}
+
+.red-button:hover{
+    background:colors.$white;
+    color:colors.$salmon;
+    transition:.2s;
+}

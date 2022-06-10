@@ -1,0 +1,22 @@
+@use "../../../colors";
+@import "~bootstrap/scss/bootstrap";
+
+#tabla-reporte{
+    border-radius:20px;
+}
+
+tr,th,td{
+    border:none;
+}
+
+th{
+    color:base.$green-grey;
+}
+
+td{
+    color:base.$grey
+}
+
+tbody{
+    border-top:3px solid base.$grey !important;
+}
