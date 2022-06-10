@@ -14,6 +14,7 @@ import { Home } from '../Components/Home/Home';
 import useUser from '../Hooks/useUser';
 import { UserContext } from '../context/UserContext';
 import { GastosPage } from '../Pages/GastosPage/GastosPage';
+import { ResidentesPage } from '../Pages/Residentes/ResidentesPage';
 
 export const AppRoutes = () => {
   const user = useUser();
@@ -107,7 +108,7 @@ export const AppRoutes = () => {
             path='/'
             element={
 
-              < Home />
+              < ResidentesPage />
 
             }
           />

@@ -15,6 +15,7 @@ export const AdministratosRoutes = () => {
       <Route path='/adminHome' element={<AdminHome />} />
       <Route path='/gastos' element={< GastosPage/>} />
       <Route path='/controlGastos' element={< ControlGastos/>} />
+      
        
     </Routes>
   );

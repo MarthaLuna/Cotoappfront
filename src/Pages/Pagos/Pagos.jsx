@@ -9,7 +9,7 @@ export const AdminHome=()=>
     return(
         <div id="Home-Container">
             <NavAdmin/>
-            <img src={require("../../images/admin.png")} alt="admin"></img>
+          
             <Footer/>
         </div>
     );
