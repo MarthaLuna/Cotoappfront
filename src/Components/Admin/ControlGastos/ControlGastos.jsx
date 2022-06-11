@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import Dropdown from 'react-bootstrap/Dropdown';
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import { Link } from 'react-router-dom';
+import Modal from '../../Modal/Modal';
 
 
 const ControlGastos = () => {
+    const [openModal, setOpenModal] = useState(false)
     return (
         <>
             <div id="Home-Container" style={{ background: "#747E7E" }}>
@@ -113,7 +115,8 @@ const ControlGastos = () => {
                                                     </Link>
                                                 </h3>
                                                 <h3 className="m-0 p-0">
-                                                    <i className="bi bi-trash-fill" id="borrar"></i>
+                                                    <i className="bi bi-trash-fill openModalBtn" id="borrar" onClick={() => setOpenModal(true)}></i>
+                                                    {openModal && <Modal closeModal={setOpenModal} />}
                                                 </h3>
                                             </td>
                                         </tr>
