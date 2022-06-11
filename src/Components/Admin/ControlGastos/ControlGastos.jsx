@@ -99,10 +99,13 @@ const ControlGastos = () => {
                                             <th scope="row" className="text-center">Basura</th>
                                             <td>Enero</td>
                                             <td>500</td>
-                                            <td>Ver Gasto</td>
+
+                                            <td>  <Link to="/informacion-gasto">Ver Gasto</Link></td>
+
                                             <td className="text-center d-flex justify-content-center">
                                                 <h3 className="m-0 p-0">
-                                                    <i className="me-3 bi bi-eye-fill m-0 p-0"></i>
+                                                    <Link to="/informacion-gasto"> <i className="me-3 bi bi-eye-fill m-0 p-0"></i></Link>
+
                                                 </h3>
                                                 <h3 className="m-0 p-0">
                                                     <Link to="/editar-gasto">
