@@ -73,27 +73,11 @@ export const AppRoutes = () => {
               </PrivateRoutes>
             }
           />
-
-         
-        </Routes>
-      </BrowserRouter>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/auth/*"
-            element={
-              <PublicRoutes isLoggedIn={isLoggedIn}>
-                <AuthRoutes />
-              </PublicRoutes>
-            }
-          />
           <Route
             path="/admin/*"
-            element={
-              <AdminRoutes isLoggedIn={isLoggedIn}>
-                <AdministratosRoutes />
-              </AdminRoutes>
+            element={<AdministratosRoutes />
             }
+
           />
           <Route path="/" element={<Home />} />
         </Routes>
