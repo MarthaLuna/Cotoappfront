@@ -6,11 +6,12 @@ import { AdminHome} from '../Pages/AdminHome/AdminHome';
 import { GastosPage } from '../Pages/GastosPage/GastosPage';
 import ControlGastos  from '../Components/Admin/ControlGastos/ControlGastos';
 
+
 export const AdministratosRoutes = () => {
   return (
     <Routes>
     
-      <Route path='residentes' element={<ResidentesPage />} />
+      <Route path='/residentes' element={<ResidentesPage />} />
      
       <Route path='/adminHome' element={<AdminHome />} />
       <Route path='/gastos' element={< GastosPage/>} />
