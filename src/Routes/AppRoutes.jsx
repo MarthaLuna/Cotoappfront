@@ -22,8 +22,8 @@ export const AppRoutes = () => {
   const token = localStorage.getItem("token");
   let admin = false;
   console.log(token);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoggedAdminIn, setIsLoggedAdminIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedAdminIn, setIsLoggedAdminIn] = useState(true);
   const { loading, request, error, data } = useHttp(validToken, { token });
   const { loadingAdmin, requestAdmin, errorAdmin, dataAdmin } = useHttpAdmin(
     isAdmin,
