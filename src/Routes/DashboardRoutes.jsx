@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import ControlGastos from '../Pages/ControlGastos/ControlGastos';
 import EditarGasto from '../Components/Admin/EditarGasto/EditarGasto';
 import InformacionGasto from '../Components/Admin/InformacionGasto/InformacionGasto';
 import RegistrarGasto from '../Components/Admin/RegistrarGasto/RegistrarGasto';

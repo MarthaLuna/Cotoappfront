@@ -3,7 +3,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import { Link } from 'react-router-dom';
-import Modal from '../../Components/Modal/Modal'
+import Modal from '../../../Components/Modal/Modal'
 
 export const ShowControlGastos = ({ _id, concepto, monto, fecha_gasto, comprobante, descripcion, imagen_mejora }) => {
     const [openModal, setOpenModal] = useState(false)
@@ -76,8 +76,6 @@ export const ShowControlGastos = ({ _id, concepto, monto, fecha_gasto, comproban
                                         </tr>
                                     </thead>
                                     <tbody>
-
-
                                         <tr>
                                             <th scope="row" className="text-center">{concepto}</th>
                                             <td>{fecha_gasto}</td>

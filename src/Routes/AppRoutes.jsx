@@ -13,7 +13,6 @@ import { AdministratosRoutes } from "./AdministratosRoutes";
 import { Home } from "../Components/Home/Home";
 import useUser from "../Hooks/useUser";
 import { UserContext } from "../context/UserContext";
-import { GastosPage } from "../Pages/GastosPage/GastosPage";
 import { ResidentesPage } from "../Pages/Residentes/ResidentesPage";
 
 export const AppRoutes = () => {

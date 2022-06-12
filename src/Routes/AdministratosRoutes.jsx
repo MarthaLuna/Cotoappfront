@@ -2,9 +2,9 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { ResidentesPage } from '../Pages/Residentes/ResidentesPage';
-import { AdminHome } from '../Pages/AdminHome/AdminHome';
-import { GastosPage } from '../Pages/GastosPage/GastosPage';
-import ControlGastos from '../Pages/ControlGastos/ControlGastos';
+import { AdminHome } from '../Pages/Admin/AdminHome/AdminHome';
+import { GastosPage } from '../Pages/Admin/GastosPage/GastosPage';
+import ControlGastos from '../Pages/Admin/ControlGastos/ControlGastos';
 
 
 export const AdministratosRoutes = () => {

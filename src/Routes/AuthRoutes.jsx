@@ -2,9 +2,8 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { LoginPage } from '../Pages/Login/LoginPage';
 import { ReportesPage } from '../Pages/Reportes/ReportesPage';
-import { AdminHome } from '../Pages/AdminHome/AdminHome';
-import { GastosPage } from '../Pages/GastosPage/GastosPage';
-import ControlGastos from '../Pages/ControlGastos/ControlGastos';
+import { AdminHome } from '../Pages/Admin/AdminHome/AdminHome';
+import { GastosPage } from '../Pages/Admin/GastosPage/GastosPage';
 
 export const AuthRoutes = () => {
   return (

@@ -1,8 +1,8 @@
 import { useFormik } from 'formik';
 import React, { useEffect, useState } from 'react';
-import { NavAdmin } from "../../Components/NavAdmin";
-import { Footer } from "../../Components/Home/Footer";
-import { useHttp } from "../../Hooks/useHttp";
+import { NavAdmin } from '../../../Components/NavAdmin';
+import { Footer } from '../../../Components/Home/Footer';
+import { useHttp } from '../../../Hooks/useHttp';
 import { gastosRequest } from "./Services/ServiceGastos";
 import { ShowGastos } from "./ShowGastos";
 
