@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
-
 import { NavAdmin } from '../../../Components/NavAdmin';
 import { Footer } from '../../../Components/Home/Footer';
 import { useHttp } from '../../../Hooks/useHttp';
-import { ServiceGastosRequest } from './Services/ServiceGastoRequest'
+import { ServiceRequest } from '../Services/ServiceRequest';
 import { ShowControlGastos } from './ShowControlGastos'
 
 
 const ControlGastos = () => {
     const [controlGastos, setControlGastos] = useState([])
-    const { loading, request, error, data } = useHttp(ServiceGastosRequest)
+    const { loading, request, error, data } = useHttp(ServiceRequest)
 
     useEffect(() => {
         request()

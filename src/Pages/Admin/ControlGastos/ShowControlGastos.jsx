@@ -82,7 +82,7 @@ export const ShowControlGastos = ({ _id, concepto, monto, fecha_gasto, comproban
                                             <td>{monto}</td>
                                             <td>{descripcion}</td>
 
-                                            <td>  <Link to="/informacion-gasto">Ver Gasto</Link></td>
+                                            <td>  <Link to="/admin/informacion-gasto">Ver Gasto</Link></td>
 
                                             <td className="text-center d-flex justify-content-center">
                                                 <h3 className="m-0 p-0">
