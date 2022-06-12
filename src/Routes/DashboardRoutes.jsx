@@ -14,14 +14,10 @@ export const DashboardRoutes = () => {
       <Route path='home' element={<HomePage />} />
       <Route path='/registrar-gasto' element={<RegistrarGasto />} />
       <Route path='/editar-gasto' element={<EditarGasto />} />
-<<<<<<< HEAD
-      <Route path='/informacion-gasto' element={<InformacionGasto />} />
       <Route path='/residentes' element={<ResidentesPage />} />
       <Route path='/buscarResidente' element={<BuscarResidentesPage />} />
       <Route path='/crearResidente' element={<CreateResidentesPage />} />
 
-=======
->>>>>>> 59483c0b4b610397f21854a3deb9cfef6a3314e3
     </Routes>
   );
 };

@@ -14,7 +14,7 @@ import { Home } from "../Components/Home/Home";
 import useUser from "../Hooks/useUser";
 import { UserContext } from "../context/UserContext";
 import { ResidentesPage } from "../Pages/Residentes/ResidentesPage";
-import { AdminHome } from "../Pages/AdminHome/AdminHome";
+import { AdminHome } from "../Pages/Admin/AdminHome/AdminHome";
 
 export const AppRoutes = () => {
   const user = useUser();

@@ -22,9 +22,94 @@ body{
 }
 
 .Body-Content,.Body{
-    height:80vh;
+    height:100vh;
 }
 
 .btn-residente{
     background-color: #FF5F5D;
 }
+
+.ResidenteCContainer {
+    display: flex;
+    justify-content:flex-start;
+    margin-left: 100px;
+    width: 100%;
+    
+}
+
+.field{
+    display: flex;
+    justify-content: left;
+}
+
+.ResidenteCContent {
+    background-color: white;
+    border-radius: 10px;
+    width: 30%;
+    height: 450px;
+    margin-top: 50px;
+    padding-top: 50px;
+    margin-bottom: 100px;
+    padding-bottom: 100px;
+}
+
+input{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 5px, solid, black;
+    margin-top: 20px;
+}
+
+span {
+    color: #3F7C85;
+    font-weight: bolder;
+    margin-top: 50px;
+  
+}
+
+#button_limpiar{
+
+    background-color: #3F7C85;
+    border-radius: 10px;
+    color: white;
+    border-color: white;
+    font-weight: bolder;
+    margin-top: 50px;
+    width: 80px;
+    
+}
+
+#button_cancelar{
+
+    background-color: #747E7E;
+    border-radius: 10px;
+    color: white;
+    border-color: white;
+    font-weight: bolder;
+    margin-top: 50px;
+    width: 80px;
+    
+}
+
+#button_enviar{
+
+    background-color: #FF5F5D;
+    border-radius: 10px;
+    color: white;
+    border-color: white;
+    font-weight: bolder;
+    margin-top: 50px;
+    width: 80px;
+    
+}
+
+.botones_f{
+    display: flex;
+}
+
+@media (max-width: 600px) {
+    .LoginContent {
+      width: 70%;
+    }
+  }
