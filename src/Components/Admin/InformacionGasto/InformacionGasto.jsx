@@ -11,6 +11,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import { FiEdit3 } from 'react-icons/fi'
 import { FaTrashAlt } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 
 function InformacionGasto() {
     return (
@@ -108,6 +109,9 @@ function InformacionGasto() {
                                     Eliminar <FaTrashAlt />
                                 </span>
                             </button>
+                            <Link to="/controlGastos">
+                                <Button className='m-2' variant="dark">Cancelar <TiCancel /></Button>{' '}
+                            </Link>
                         </div>
 
 

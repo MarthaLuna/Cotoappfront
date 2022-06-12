@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { ResidentesPage } from '../Pages/Residentes/ResidentesPage';
 import { AdminHome } from '../Pages/AdminHome/AdminHome';
 import { GastosPage } from '../Pages/GastosPage/GastosPage';
-import ControlGastos from '../Components/Admin/ControlGastos/ControlGastos';
+import ControlGastos from '../Pages/ControlGastos/ControlGastos';
 
 
 export const AdministratosRoutes = () => {
