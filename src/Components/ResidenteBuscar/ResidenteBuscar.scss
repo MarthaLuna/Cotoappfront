@@ -1,0 +1,30 @@
+@use "../../colors";
+@import "~bootstrap/scss/bootstrap";
+
+.residenteBuscarCont{
+    background-color: #747E7E;
+    height: 100%;
+}
+
+.residenteBuscarContent{
+
+    background-color: #747E7E;
+    height: 100%;
+}
+
+.residenteBuscarConteiner{
+    background-color: #747E7E;
+    height: 100%;
+}
+
+body{
+    background:colors.$grey;
+}
+
+.Body-Content,.Body{
+    height:80vh;
+}
+
+.btn-residente{
+    background-color: #FF5F5D;
+}

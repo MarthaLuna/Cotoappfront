@@ -1,0 +1,1 @@
+export { ResidenteBuscar } from "./ResidenteBuscar";

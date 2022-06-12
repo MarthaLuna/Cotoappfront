@@ -15,6 +15,7 @@ import useUser from "../Hooks/useUser";
 import { UserContext } from "../context/UserContext";
 import { GastosPage } from "../Pages/GastosPage/GastosPage";
 import { ResidentesPage } from "../Pages/Residentes/ResidentesPage";
+import { AdminHome } from "../Pages/AdminHome/AdminHome";
 
 export const AppRoutes = () => {
   const user = useUser();
@@ -22,8 +23,8 @@ export const AppRoutes = () => {
   const token = localStorage.getItem("token");
   let admin = false;
   console.log(token);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoggedAdminIn, setIsLoggedAdminIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedAdminIn, setIsLoggedAdminIn] = useState(true);
   const { loading, request, error, data } = useHttp(validToken, { token });
   const { loadingAdmin, requestAdmin, errorAdmin, dataAdmin } = useHttpAdmin(
     isAdmin,
@@ -95,7 +96,7 @@ export const AppRoutes = () => {
               </AdminRoutes>
             }
           />
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<AdminHome />} />
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>

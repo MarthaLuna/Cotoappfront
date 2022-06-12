@@ -12,7 +12,7 @@ export const NavAdmin = () => {
         <Navbar2 className="mb-2" sticky="top" id="Navbar-container">
             <Container className="d-flex justify-content-around">
                 <Navbar2.Brand className="me-0" id="navbar-cotoApp-name" href="/"><img src={require("../../images/logo.jpg")} alt="logo" width="50px"></img></Navbar2.Brand>
-                <div id="coto-name"><a id="link_nav" href="#">Residentes</a></div>
+                <div id="coto-name"><a id="link_nav" href="/admin/residentes">Residentes</a></div>
                 <div id="coto-name"><a id="link_nav" href="#">Pagos</a></div>
                 <div id="coto-name"><a id="link_nav" href="#">Gastos</a></div>
                 <div id="coto-name"><a id="link_nav" href="#">Reportes</a></div>

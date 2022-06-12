@@ -11,11 +11,11 @@ export const ResidenteHome =()=>{
                          <div className="residenteHomeContent d-flex justify-content-around">
                                  <div className="d-flex gap-3">
                                  <input type="text" placeholder="Ingresa nombre residente"></input>
-                                 <a className="btn btn-outline-light btn-residente" href="/auth/login" >
+                                 <a className="btn btn-outline-light btn-residente" href="/buscarResidente" >
                     Buscar
                     </a>
                     </div>
-                    <a className="btn btn-outline-light btn-residente" href="/auth/login" >
+                    <a className="btn btn-outline-light btn-residente" href="/crearResidente" >
                     Crear Residente
                     </a>
                          </div>
