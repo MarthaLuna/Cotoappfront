@@ -32,6 +32,7 @@ export const ResidenteCrear =()=>{
           onSubmit: () => request(),
           onReset: () => { const source = document.getElementById("source");
           source.innerText = ""}
+          
        
           
         });
@@ -52,12 +53,17 @@ export const ResidenteCrear =()=>{
             const source = document.getElementById("source");
         source.innerText = "Residente creado exitosamente"
           }
-          else
+          else if (data.success == false)
           {
                 navigate('.');
                 const source = document.getElementById("source");
                 source.innerText = "Residente no se pudo crear"
 
+          }
+          else{
+
+            const source = document.getElementById("source");
+          source.innerText = ""
           }
         }, [data]);
    

@@ -3,9 +3,9 @@ import React from "react";
 import "./ResidenteBuscar.scss";
 import useUser from "../../Hooks/useUser";
 
-export const ResidenteBuscar =()=>{
+export const ResidenteBuscar =(_id, nombre, casa, telefono)=>{
    
-        return(
+       return(
          <div className="residenteBuscarConteiner"> 
                  <div className="residenteBuscarCont">
                          <div className="residenteBuscarContent d-flex justify-content-around">
