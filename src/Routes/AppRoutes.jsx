@@ -18,10 +18,10 @@ import { AdminHome } from "../Pages/Admin/AdminHome/AdminHome";
 
 export const AppRoutes = () => {
   const user = useUser();
-  console.log(user);
+
   const token = localStorage.getItem("token");
   let admin = false;
-  console.log(token);
+
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isLoggedAdminIn, setIsLoggedAdminIn] = useState(true);
   const { loading, request, error, data } = useHttp(validToken, { token });
@@ -45,7 +45,6 @@ export const AppRoutes = () => {
     if (dataAdmin.success) {
       setIsLoggedAdminIn(true);
       admin = dataAdmin.success;
-      console.log("isAdmin", admin);
     }
   }, [dataAdmin]);
 
@@ -73,12 +72,7 @@ export const AppRoutes = () => {
               </PrivateRoutes>
             }
           />
-          <Route
-            path="/admin/*"
-            element={<AdministratosRoutes />
-            }
-
-          />
+          <Route path="/admin/*" element={<AdministratosRoutes />} />
           <Route path="/" element={<AdminHome />} />
         </Routes>
       </BrowserRouter>

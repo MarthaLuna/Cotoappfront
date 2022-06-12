@@ -1,45 +1,37 @@
-import React, { useState, useEffect } from 'react'
-import { NavAdmin } from '../../../Components/NavAdmin';
-import { Footer } from '../../../Components/Home/Footer';
-import { useHttp } from '../../../Hooks/useHttp';
-import { ServiceRequest } from '../Services/ServiceRequest';
-import { ShowControlGastos } from './ShowControlGastos'
-
+import React, { useState, useEffect } from "react";
+import { NavAdmin } from "../../../Components/NavAdmin";
+import { Footer } from "../../../Components/Home/Footer";
+import { useHttp } from "../../../Hooks/useHttp";
+import { ServiceRequest } from "../Services/ServiceRequest";
+import { ShowControlGastos } from "./ShowControlGastos";
 
 const ControlGastos = () => {
-    const [controlGastos, setControlGastos] = useState([])
-    const { loading, request, error, data } = useHttp(ServiceRequest)
+  const [controlGastos, setControlGastos] = useState([]);
+  const { loading, request, error, data } = useHttp(ServiceRequest);
 
-    useEffect(() => {
-        request()
-    }, [])
+  useEffect(() => {
+    request();
+  }, []);
 
-    useEffect(() => {
-        if (Object.keys(data).length != 0) {
-            setControlGastos(data.payload);
-            // console.log(data.payload);
-            // console.log(Object.keys(data.payload[0]).toString())
-        }
-    }, [data]);
+  useEffect(() => {
+    if (Object.keys(data).length != 0) {
+      setControlGastos(data.payload);
+    }
+  }, [data]);
 
-    return (
-        <>
+  return (
+    <>
+      <div id="Home-Container">
+        <NavAdmin />
+        <div className="text-danger">
+          {controlGastos.map((controlGasto) => (
+            <ShowControlGastos key={controlGasto._id} {...controlGasto} />
+          ))}
+        </div>
+        <Footer />
+      </div>
+    </>
+  );
+};
 
-            <div id="Home-Container">
-                <NavAdmin />
-                <div className="text-danger">
-                    {controlGastos.map((controlGasto) => (
-                        <ShowControlGastos key={controlGasto._id}{...controlGasto} />
-                    ))}
-                </div>
-                <Footer />
-            </div>
-
-
-
-
-        </>
-    )
-}
-
-export default ControlGastos
+export default ControlGastos;
