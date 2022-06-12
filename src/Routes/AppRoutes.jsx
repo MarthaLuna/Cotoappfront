@@ -13,7 +13,6 @@ import { AdministratosRoutes } from "./AdministratosRoutes";
 import { Home } from "../Components/Home/Home";
 import useUser from "../Hooks/useUser";
 import { UserContext } from "../context/UserContext";
-import { GastosPage } from "../Pages/GastosPage/GastosPage";
 import { ResidentesPage } from "../Pages/Residentes/ResidentesPage";
 import { AdminHome } from "../Pages/AdminHome/AdminHome";
 
@@ -74,27 +73,11 @@ export const AppRoutes = () => {
               </PrivateRoutes>
             }
           />
-
-         
-        </Routes>
-      </BrowserRouter>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/auth/*"
-            element={
-              <PublicRoutes isLoggedIn={isLoggedIn}>
-                <AuthRoutes />
-              </PublicRoutes>
-            }
-          />
           <Route
             path="/admin/*"
-            element={
-              <AdminRoutes isLoggedIn={isLoggedIn}>
-                <AdministratosRoutes />
-              </AdminRoutes>
+            element={<AdministratosRoutes />
             }
+
           />
           <Route path="/" element={<AdminHome />} />
         </Routes>

@@ -1,36 +1,15 @@
-import React, { useState } from 'react'
-// import 'bootstrap/dist/css/bootstrap.min.css'
+import React, { useState, useEffect } from 'react'
 import Dropdown from 'react-bootstrap/Dropdown';
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import { Link } from 'react-router-dom';
-import Modal from '../../Modal/Modal';
+import Modal from '../../../Components/Modal/Modal'
 
-
-const ControlGastos = () => {
+export const ShowControlGastos = ({ _id, concepto, monto, fecha_gasto, comprobante, descripcion, imagen_mejora }) => {
     const [openModal, setOpenModal] = useState(false)
     return (
         <>
             <div id="Home-Container" style={{ background: "#747E7E" }}>
-                <Navbar className="mb-2" sticky="top" style={{ background: "#FF5F5D" }}>
-                    <Container className="d-flex justify-content-around">
-                        <Navbar.Brand className="me-0" style={{ color: "#FFFFFF" }} href="#home">CotoApp</Navbar.Brand>
-                        <div className="d-flex w-50 ms-2">
-                            <div className="" style={{ color: "white" }}>Residentes</div>
-                            <div className="ms-4" style={{ color: "white" }}>Pagos</div>
-                            <div className="ms-4" style={{ color: "white" }}>Gastos</div>
-                            <div className="ms-4" style={{ color: "white" }}>Reportes</div>
-                        </div>
-                        <button type="button" className="btn btn-outline-light">
-                            <span className="d-none d-md-flex">
-                                Salir
-                                <i className="ms-2 bi bi-door-open-fill"></i>
-                            </span>
-                            <i className="d-md-none bi bi-door-open-fill"></i>
-                        </button>
-                    </Container>
-                </Navbar>
-
                 <section className="Body d-flex align-items-center justify-content-center w-100">
                     <div className="Body-Container h-100 d-flex align-items-center justify-content-center w-100">
                         <Container className="Body-Content p-4 d-flex flex-column justify-content-start w-100">
@@ -98,11 +77,12 @@ const ControlGastos = () => {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th scope="row" className="text-center">Basura</th>
-                                            <td>Enero</td>
-                                            <td>500</td>
+                                            <th scope="row" className="text-center">{concepto}</th>
+                                            <td>{fecha_gasto}</td>
+                                            <td>{monto}</td>
+                                            <td>{descripcion}</td>
 
-                                            <td>  <Link to="/informacion-gasto">Ver Gasto</Link></td>
+                                            <td>  <Link to="/admin/informacion-gasto">Ver Gasto</Link></td>
 
                                             <td className="text-center d-flex justify-content-center">
                                                 <h3 className="m-0 p-0">
@@ -115,28 +95,14 @@ const ControlGastos = () => {
                                                     </Link>
                                                 </h3>
                                                 <h3 className="m-0 p-0">
-                                                    <i className="bi bi-trash-fill openModalBtn" id="borrar" onClick={() => setOpenModal(true)}></i>
+
+                                                    <i className="bi bi-trash-fill openModalBtn" id="borrar" onClick={() => setOpenModal(true)} style={{ cursor: 'pointer' }}></i>
                                                     {openModal && <Modal closeModal={setOpenModal} />}
+
                                                 </h3>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row" className="text-center">Basura</th>
-                                            <td>Enero</td>
-                                            <td>400</td>
-                                            <td>Ver gasto</td>
-                                            <td className="text-center d-flex justify-content-center">
-                                                <h3 className="m-0 p-0">
-                                                    <i className="me-3 bi bi-eye-fill m-0 p-0"></i>
-                                                </h3>
-                                                <h3 className="m-0 p-0">
-                                                    <i className="me-3 bi bi-pencil-fill" id="editar"></i>
-                                                </h3>
-                                                <h3 className="m-0 p-0">
-                                                    <i className="bi bi-trash-fill" id="borrar"></i>
-                                                </h3>
-                                            </td>
-                                        </tr>
+
                                     </tbody>
                                 </table>
 
@@ -165,39 +131,16 @@ const ControlGastos = () => {
                 </section>
 
 
-                <Navbar
-                    fixed="bottom"
-                    expand="lg"
-                    variant="light"
-                    style={{ background: "#FFFFFF" }}
-                    className="d-flex flex-column pt-0"
-                >
-                    <div className="w-100">
-                        <div className="p-0 m-0" style={{ background: "#FFFFFF" }, { height: "2px" }}></div>
-                        <div className="pb-1" style={{ background: "#747E7E" }}></div>
-                    </div>
-                    <Container className="d-flex align-items-center justify-content-center">
-                        <div className="pt-2 d-flex align-items-center justify-content-center">
-                            <small className="m-0 me-1" style={{ color: "#747E7E" }}>
-                                Powered by
-                            </small>
-                            <Navbar.Brand
-                                className="m-0 p-0"
-                                style={{ color: "#FF5F5D" }}
-                                href="#"
-                            >
-                                CotoApp
-                            </Navbar.Brand>
-                        </div>
-                    </Container>
-                </Navbar>
 
+
+                <div className="text-light">
+                    <div>{concepto}</div>
+                    {monto}
+                </div>
             </div >
-
-
-
         </>
-    )
-}
 
-export default ControlGastos
+
+
+    );
+}
