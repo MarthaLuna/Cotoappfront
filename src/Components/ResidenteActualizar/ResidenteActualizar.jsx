@@ -31,13 +31,7 @@ export const ResidenteActualizar = () => {
       email: "",
       telefono: "",
     },
-    validate: (values) => {
-      const errors = {};
-      if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-        errors.email = "Email no es valido";
-      }
-      return errors;
-    },
+
     onSubmit: () => request(),
     onReset: () => {
       const source = document.getElementById("source");
@@ -73,7 +67,11 @@ export const ResidenteActualizar = () => {
       // You can await here
 
       const result = await axios.get(`${urlApi}/residentes/${id}`);
-      setFieldValue("nombre", result.data.payload.nombre);
+      const { nombre, email, casa, telefono } = result.data.payload;
+      setFieldValue("nombre", nombre);
+      setFieldValue("email", email);
+      setFieldValue("numCasa", casa);
+      setFieldValue("telefono", telefono);
     }
     fetchData();
   }, []);

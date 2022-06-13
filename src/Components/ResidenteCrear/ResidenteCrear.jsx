@@ -70,47 +70,65 @@ export const ResidenteCrear = () => {
               alignItems: "center",
             }}
           >
-            <div className="field">
-              <span>Nombre: </span>
-              <input
-                className="form-control"
-                type="nombre"
-                value={values.nombre}
-                onChange={handleChange}
-                name="nombre"
-              ></input>
-            </div>
-            <div className="field">
-              <span>No. Casa: </span>
-              <input
-                className="form-control"
-                type="numCasa"
-                value={values.numCasa}
-                onChange={handleChange}
-                name="numCasa"
-              ></input>
-            </div>
-            <div className="field">
-              <span>Email: </span>
-              <input
-                className="form-control"
-                type="email"
-                value={values.email}
-                onChange={handleChange}
-                name="email"
-              ></input>
-            </div>
-            {errors.email && <span> Ingresa un email valido</span>}
-            <div className="field">
-              <span>Telefono: </span>
-              <input
-                className="form-control"
-                type="telefono"
-                value={values.telefono}
-                onChange={handleChange}
-                name="telefono"
-              ></input>
-            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <span>Nombre: </span>
+                  </td>
+                  <td>
+                    {" "}
+                    <input
+                      type="nombre"
+                      value={values.nombre}
+                      onChange={handleChange}
+                      name="nombre"
+                    ></input>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span>No. Casa: </span>
+                  </td>
+                  <td>
+                    <input
+                      type="numCasa"
+                      value={values.numCasa}
+                      onChange={handleChange}
+                      name="numCasa"
+                    ></input>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span>Email: </span>
+                  </td>
+                  <td>
+                    <input
+                      type="email"
+                      value={values.email}
+                      onChange={handleChange}
+                      name="email"
+                    ></input>
+                    {errors.email && <span> Ingresa un email valido</span>}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span>Telefono: </span>
+                  </td>
+                  <td>
+                    <input
+                      type="telefono"
+                      value={values.telefono}
+                      onChange={handleChange}
+                      name="telefono"
+                    ></input>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
             <div className="botones_f">
               <button id="button_limpiar" type="reset">
                 Limpiar

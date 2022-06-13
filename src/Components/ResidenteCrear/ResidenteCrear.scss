@@ -37,10 +37,7 @@ body{
     
 }
 
-.field{
-    display: flex;
-    justify-content: left;
-}
+
 
 .ResidenteCContent {
     background-color: white;
@@ -58,13 +55,13 @@ input{
     border-left: 0;
     border-right: 0;
     border-bottom: 5px, solid, black;
-    margin-top: 20px;
+    height: 30px;
 }
 
 span {
     color: #3F7C85;
     font-weight: bolder;
-    margin-top: 50px;
+    
   
 }
 
