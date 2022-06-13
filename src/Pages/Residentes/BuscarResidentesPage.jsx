@@ -9,6 +9,7 @@ import { ResidenteBuscar } from "../../Components/ResidenteBuscar";
 import { useEffect, useState } from "react";
 import { useHttp } from "../../Hooks/useHttp";
 import { residentesBuscarRequest } from "./Services/Buscar";
+import "./Residentes.scss";
 
 export const BuscarResidentesPage = () => {
   const location = useLocation();
@@ -33,7 +34,7 @@ export const BuscarResidentesPage = () => {
   return (
     <div id="Home-Container">
       <NavAdmin />
-      <div className="text-danger">
+      <div className="resultTable">
         <table>
           <thead>
             <tr>
@@ -41,10 +42,11 @@ export const BuscarResidentesPage = () => {
               <th>No. Casa</th>
               <th>Email</th>
               <th>Telefono</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
-            {console.log("residentes", residentes)}
             {residentes.map((residente) => (
               <ResidenteBuscar key={residente._id} {...residente} />
             ))}
