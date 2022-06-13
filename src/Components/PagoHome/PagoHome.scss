@@ -1,0 +1,30 @@
+@use "../../colors";
+@import "~bootstrap/scss/bootstrap";
+
+.PagoHomeCont{
+    background-color: #747E7E;
+    height: 100%;
+}
+
+.PagoHomeContent{
+
+    background-color: #747E7E;
+    height: 100%;
+}
+
+.PagoHomeConteiner{
+    background-color: #747E7E;
+    height: 100%;
+}
+
+body{
+    background:colors.$grey;
+}
+
+.Body-Content,.Body{
+    height:80vh;
+}
+
+.btn-Pago{
+    background-color: #FF5F5D;
+}

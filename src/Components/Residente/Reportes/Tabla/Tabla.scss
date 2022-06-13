@@ -1,4 +1,4 @@
-@use "../../../colors";
+@use "../../../../colors";
 @import "~bootstrap/scss/bootstrap";
 
 #tabla-reporte{
@@ -10,13 +10,10 @@ tr,th,td{
 }
 
 th{
-    color:base.$green-grey;
+    color:green;
 }
 
 td{
-    color:base.$grey
+    color:grey;
 }
 
-tbody{
-    border-top:3px solid base.$grey !important;
-}

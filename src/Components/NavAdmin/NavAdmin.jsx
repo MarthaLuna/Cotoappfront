@@ -23,7 +23,7 @@ export const NavAdmin = () => {
           </a>
         </div>
         <div id="coto-name">
-          <a id="link_nav" href="#">
+          <a id="link_nav" href="/admin/pagos">
             Pagos
           </a>
         </div>
@@ -33,7 +33,7 @@ export const NavAdmin = () => {
           </a>
         </div>
         <div id="coto-name">
-          <a id="link_nav" href="#">
+          <a id="link_nav" href="/reportes">
             Reportes
           </a>
         </div>

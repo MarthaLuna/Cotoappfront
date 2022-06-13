@@ -1,17 +1,15 @@
 import React from "react";
-import { Principal } from "../../Components/Residente/Pagos/Principal";
 
 import { NavAdmin } from "../../Components/NavAdmin";
 
 import { Footer } from "../../Components/Home/Footer";
+import { PagoCrear } from "../../Components/PagoCrear/PagoCrear";
 
-import { ResidenteHome } from "../../Components/ResidenteHome";
-
-export const ResidentesPage = () => {
+export const CreatePagosPage = () => {
   return (
     <div id="Home-Container">
       <NavAdmin />
-      <ResidenteHome />
+      <PagoCrear />
       <Footer />
     </div>
   );

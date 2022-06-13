@@ -26,10 +26,10 @@ export const ResidenteHome = () => {
             <form onSubmit={handleSubmit}>
               <input
                 type="search"
-                placeholder="Ingresa nombre residente"
+                placeholder="Ingresa nombre..."
                 onChange={handleChange}
               ></input>
-              <span>&nsbp</span>
+              <span>&nbsp;&nbsp;&nbsp;</span>
               <button className="btn btn-outline-light btn-residente">
                 Buscar
               </button>

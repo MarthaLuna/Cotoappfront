@@ -1,18 +1,18 @@
 @use "../../colors";
 @import "~bootstrap/scss/bootstrap";
 
-.residenteCrearCont{
+.PagoCrearCont{
     background-color: #747E7E;
     height: 100%;
 }
 
-.residenteCrearContent{
+.PagoCrearContent{
 
     background-color: #747E7E;
     height: 100%;
 }
 
-.residenteCrearConteiner{
+.PagoCrearConteiner{
     background-color: #747E7E;
     height: 100%;
 }
@@ -25,11 +25,11 @@ body{
     height:100vh;
 }
 
-.btn-residente{
+.btn-Pago{
     background-color: #FF5F5D;
 }
 
-.residenteCContainer {
+.PagoCContainer {
     display: flex;
     justify-content:flex-start;
     margin-left: 100px;
@@ -39,7 +39,7 @@ body{
 
 
 
-.residenteCContent {
+.PagoCContent {
     background-color: white;
     border-radius: 10px;
     width: 30%;

@@ -1,0 +1,1 @@
+export { PagoHome } from "./PagoHome";
