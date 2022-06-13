@@ -1,61 +1,82 @@
 import { useFormik } from "formik";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useHttp } from "../../Hooks/useHttp";
-import { crearRRequest } from "./Services/CrearResidenteService";
+import { actualizarRRequest } from "./Services/ActualizarResidenteService";
+import { useLocation } from "react-router-dom";
+import queryString from "query-string";
+import axios from "axios";
 
-import "./ResidenteCrear.scss";
+import "./ResidenteActualizar.scss";
 
-import "./ResidenteCrear.scss";
 import useUser from "../../Hooks/useUser";
 
-export const ResidenteCrear = () => {
+export const ResidenteActualizar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const urlApi = process.env.REACT_APP_URL_API;
+  const { id } = queryString.parse(location.search);
 
-  const { handleSubmit, handleChange, values, errors, handleReset } = useFormik(
-    {
-      initialValues: {
-        nombre: "",
-        numCasa: "",
-        email: "",
-        telefono: "",
-      },
-      validate: (values) => {
-        const errors = {};
-        if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-          errors.email = "Email no es valido";
-        }
-        return errors;
-      },
-      onSubmit: () => request(),
-      onReset: () => {
-        const source = document.getElementById("source");
-        source.innerText = "";
-      },
-    }
-  );
+  const {
+    handleSubmit,
+    handleChange,
+    values,
+    errors,
+    handleReset,
+    setFieldValue,
+  } = useFormik({
+    initialValues: {
+      nombre: "",
+      numCasa: "",
+      email: "",
+      telefono: "",
+    },
+    validate: (values) => {
+      const errors = {};
+      if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+        errors.email = "Email no es valido";
+      }
+      return errors;
+    },
+    onSubmit: () => request(),
+    onReset: () => {
+      const source = document.getElementById("source");
+      source.innerText = "";
+    },
+  });
 
-  const { loading, request, error, data } = useHttp(crearRRequest, {
+  const { loading, request, error, data } = useHttp(actualizarRRequest, {
     nombre: values.nombre,
     numCasa: values.numCasa,
     email: values.email,
     telefono: values.telefono,
+    id: id,
   });
 
   useEffect(() => {
     if (data.success) {
       navigate(".");
       const source = document.getElementById("source");
-      source.innerText = "Residente creado exitosamente";
+      source.innerText = "Residente actualizado exitosamente";
     } else if (data.success == false) {
       navigate(".");
       const source = document.getElementById("source");
-      source.innerText = "Residente no se pudo crear";
+      source.innerText = "Residente no se pudo actualizar";
     } else {
       const source = document.getElementById("source");
       source.innerText = "";
     }
   }, [data]);
+
+  useEffect(() => {
+    async function fetchData() {
+      // You can await here
+
+      const result = await axios.get(`${urlApi}/residentes/${id}`);
+      setFieldValue("nombre", result.data.payload.nombre);
+    }
+    fetchData();
+  }, []);
 
   return (
     <div className="ResidenteCMain">
@@ -73,7 +94,6 @@ export const ResidenteCrear = () => {
             <div className="field">
               <span>Nombre: </span>
               <input
-                className="form-control"
                 type="nombre"
                 value={values.nombre}
                 onChange={handleChange}
@@ -83,7 +103,6 @@ export const ResidenteCrear = () => {
             <div className="field">
               <span>No. Casa: </span>
               <input
-                className="form-control"
                 type="numCasa"
                 value={values.numCasa}
                 onChange={handleChange}
@@ -93,7 +112,6 @@ export const ResidenteCrear = () => {
             <div className="field">
               <span>Email: </span>
               <input
-                className="form-control"
                 type="email"
                 value={values.email}
                 onChange={handleChange}
@@ -104,7 +122,6 @@ export const ResidenteCrear = () => {
             <div className="field">
               <span>Telefono: </span>
               <input
-                className="form-control"
                 type="telefono"
                 value={values.telefono}
                 onChange={handleChange}
@@ -117,7 +134,7 @@ export const ResidenteCrear = () => {
               </button>
 
               <button id="button_enviar" type="submit">
-                Enviar
+                Actualizar
               </button>
             </div>
             <div id="source"></div>

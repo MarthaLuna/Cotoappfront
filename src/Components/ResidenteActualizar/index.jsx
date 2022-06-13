@@ -1,0 +1,1 @@
+export { ResidenteActualizar } from "./ResidenteActualizar";

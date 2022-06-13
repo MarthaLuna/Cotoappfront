@@ -22,13 +22,14 @@ export const ResidenteHome = () => {
     <div className="residenteHomeConteiner">
       <div className="residenteHomeCont">
         <div className="residenteHomeContent d-flex justify-content-around">
-          <div className="d-flex gap-3">
+          <div className="d-flex gap-6">
             <form onSubmit={handleSubmit}>
               <input
                 type="search"
                 placeholder="Ingresa nombre residente"
                 onChange={handleChange}
               ></input>
+              <span>&nsbp</span>
               <button className="btn btn-outline-light btn-residente">
                 Buscar
               </button>

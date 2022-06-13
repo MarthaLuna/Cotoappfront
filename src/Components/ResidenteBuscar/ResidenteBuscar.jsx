@@ -98,7 +98,7 @@ export const ResidenteBuscar = ({
           </a>
         </td>
         <td>
-          <a href="#">
+          <a href={`/actualizarResidente?id=${_id}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
