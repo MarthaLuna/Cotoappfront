@@ -33,8 +33,10 @@ function InformacionGasto() {
         <>
             <div id="Home-Container">
                 <NavAdmin />
-                <div className="text-danger">
+                <div className="text-secondary">
                     {informacionGastos.map((informacionGasto) => (
+
+
                         <ShowInformationGastos key={informacionGasto._id}{...informacionGasto} />
                     ))}
                 </div>

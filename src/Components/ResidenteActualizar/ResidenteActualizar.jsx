@@ -16,6 +16,7 @@ export const ResidenteActualizar = () => {
   const location = useLocation();
   const urlApi = process.env.REACT_APP_URL_API;
   const { id } = queryString.parse(location.search);
+  console.log(queryString.parse(location.search))
 
   const {
     handleSubmit,

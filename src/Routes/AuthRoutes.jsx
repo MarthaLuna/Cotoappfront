@@ -5,6 +5,7 @@ import { ReportesPage } from '../Pages/Reportes/ReportesPage';
 import { AdminHome } from '../Pages/Admin/AdminHome/AdminHome';
 import { GastosPage } from '../Pages/Admin/GastosPage/GastosPage';
 
+
 export const AuthRoutes = () => {
   return (
     <Routes>
@@ -13,6 +14,7 @@ export const AuthRoutes = () => {
       <Route path='*' element={<LoginPage />} />
       <Route path='/adminHome' element={<AdminHome />} />
       <Route path='/gastos' element={<GastosPage />} />
+
 
     </Routes>
   );

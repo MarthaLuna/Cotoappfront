@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from 'react'
+import Dropdown from 'react-bootstrap/Dropdown';
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+import { Link } from 'react-router-dom';
+import Modal from '../../../Components/Modal/Modal'
+import Card from 'react-bootstrap/Card';
+import { FiEdit3 } from 'react-icons/fi'
+import { FaTrashAlt } from 'react-icons/fa'
+import { TiCancel } from 'react-icons/ti'
+import Button from 'react-bootstrap/Button'
 
 export const ShowInformationGastos = ({ _id, concepto, monto, fecha_gasto, comprobante, descripcion, imagen_mejora }) => {
     return (
         <>
-            {/*  <section className="d-flex  w-100 m-5">
+            <section className="d-flex  w-100 m-5">
                 <div className="  w-100">
                     <Container>
                         <div className="mb-4 w-100 " style={{ color: "white" }}>
@@ -23,32 +33,25 @@ export const ShowInformationGastos = ({ _id, concepto, monto, fecha_gasto, compr
                                 <Card.Body >
 
                                     <form className='p-3'>
-                                        <label>ID Gasto </label>
-                                        <input type="text"
-                                            required
-                                        />
+                                        <label>ID Gasto: </label>
+
+                                        <label>{_id}</label>
 
 
 
-                                        <label>Concepto        </label>
-                                        <input type="text"
-                                            required
-                                        />
+                                        <label>Concepto :       </label>
+                                        <label htmlFor="">{concepto}</label>
 
 
                                         <form action="" >
-                                            <label>Monto </label>
-                                            <input type="text"
-                                                required
-                                            />
+                                            <label>Monto: </label>
+                                            <label htmlFor="">{monto}</label>
 
                                         </form>
 
 
                                         <label>Descripción </label>
-                                        <input type="text"
-                                            required
-                                        />
+                                        <label htmlFor="">{descripcion}</label>
                                     </form>
 
                                 </Card.Body>
@@ -75,7 +78,7 @@ export const ShowInformationGastos = ({ _id, concepto, monto, fecha_gasto, compr
                                     Eliminar <FaTrashAlt />
                                 </span>
                             </button>
-                            <Link to="/controlGastos">
+                            <Link to="/admin/controlGastos">
                                 <Button className='m-2' variant="dark">Cancelar <TiCancel /></Button>{' '}
                             </Link>
                         </div>
@@ -85,11 +88,7 @@ export const ShowInformationGastos = ({ _id, concepto, monto, fecha_gasto, compr
 
 
                 </Container>
-            </section> */}
-            <div className="text-light">
-                <div>{concepto}</div>
-                {monto}
-            </div>
+            </section>
         </>
     )
 }
