@@ -36,10 +36,10 @@ const GastoActualizar = () => {
     });
 
     const { loading, request, error, data } = useHttp(ActualizarGastoRequest, {
-        concepto: values.nombre,
-        monto: values.numCasa,
-        fecha_gasto: values.email,
-        comprobante: values.telefono,
+        concepto: values.concepto,
+        monto: values.monto,
+        fecha_gasto: values.fecha_gasto,
+        comprobante: values.comprobante,
         id: id
     });
 

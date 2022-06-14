@@ -9,6 +9,7 @@ import InformacionGasto from '../Pages/Admin/InformacionGasto/InformacionGasto';
 import EditarGasto from '../Pages/Admin/EditarGasto/EditarGasto';
 import GastosCrear from '../Pages/Admin/GastosCrear/GastosCrear';
 import GastosActualizarPage from '../Pages/Admin/GastoActualizar/GastosActualizarPage';
+import GastoBuscarPage from '../Pages/Admin/GastoBuscar/GastoBuscarPage';
 
 export const AdministratosRoutes = () => {
   return (
@@ -22,6 +23,7 @@ export const AdministratosRoutes = () => {
       <Route path='/editar-gasto' element={<EditarGasto />} />
       <Route path='/GastosCrear' element={<GastosCrear />} />
       <Route path='/GastosActualizarPage' element={<GastosActualizarPage />} />
+      <Route path='/GastoBuscarPage' element={<GastoBuscarPage />} />
 
     </Routes>
   );

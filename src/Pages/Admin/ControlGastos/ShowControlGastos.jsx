@@ -3,8 +3,24 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Container from "react-bootstrap/Container";
 import { Link } from 'react-router-dom';
 import Modal from '../../../Components/Modal/Modal'
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+
+const urlApi = process.env.REACT_APP_URL_API;
 
 export const ShowControlGastos = ({ _id, concepto, monto, fecha_gasto, comprobante, descripcion, imagen_mejora }) => {
+    const navigate = useNavigate();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!_id) return;
+        const termUrl = encodeURIComponent(_id.trim());
+
+        const termUrl2 = encodeURIComponent(Object.values({ concepto })[0]);
+
+        const result = await axios.delete(`${urlApi}/gastos/${termUrl}`);
+
+        navigate(`/GastosActualizarPage?name=${termUrl2}`);
+    };
     const [openModal, setOpenModal] = useState(false)
     return (
         <>
@@ -21,12 +37,12 @@ export const ShowControlGastos = ({ _id, concepto, monto, fecha_gasto, comproban
                     <th scope="row">{concepto}</th>
                     <td>{fecha_gasto}</td>
                     <td>{monto}</td>
-                    <td>{descripcion}</td>
+                    <td>{comprobante}</td>
 
                     <button> <Link to="/admin/informacion-gasto">Ver Gasto</Link></button>
                     <h3 className="m-0 p-0">
                         <h3 className="m-0 p-0">
-                            <Link to="/admin/GastosActualizarPage">
+                            <Link to={`/admin/GastosActualizarPage?id=${_id}`}>
                                 <i className="me-3 bi bi-pencil-fill" id="editar"></i>
                             </Link>
                         </h3>
