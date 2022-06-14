@@ -84,42 +84,63 @@ const GastoActualizar = () => {
                             alignItems: "center",
                         }}
                     >
-                        <div className="field">
-                            <span>Concepto: </span>
-                            <input
-                                type="concepto"
-                                value={values.concepto}
-                                onChange={handleChange}
-                                name="concepto"
-                            ></input>
-                        </div>
-                        <div className="field">
-                            <span>Monto: </span>
-                            <input
-                                type="monto"
-                                value={values.monto}
-                                onChange={handleChange}
-                                name="monto"
-                            ></input>
-                        </div>
-                        <div className="field">
-                            <span>Fecha de Gasto: </span>
-                            <input
-                                type="fecha_gasto"
-                                value={values.fecha_gasto}
-                                onChange={handleChange}
-                                name="fecha_gasto"
-                            ></input>
-                        </div>
-                        <div className="field">
-                            <span>Comprobante: </span>
-                            <input
-                                type="Comprobante"
-                                value={values.comprobante}
-                                onChange={handleChange}
-                                name="Comprobante"
-                            ></input>
-                        </div>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span>Concepto: </span>
+                                    </td>
+                                    <td>
+                                        {" "}
+                                        <input
+                                            type="Concepto"
+                                            value={values.concepto}
+                                            onChange={handleChange}
+                                            name="Concepto"
+                                        ></input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Monto: </span>
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="Monto"
+                                            value={values.monto}
+                                            onChange={handleChange}
+                                            name="Monto"
+                                        ></input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Fecha de Gasto: </span>
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="Fecha"
+                                            value={values.fecha_gasto}
+                                            onChange={handleChange}
+                                            name="Fecha"
+                                        ></input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Comprobante: </span>
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="Comprobante"
+                                            value={values.comprobante}
+                                            onChange={handleChange}
+                                            name="Comprobante"
+                                        ></input>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <div className="botones_f">
                             <button id="button_limpiar" type="reset">
                                 Limpiar

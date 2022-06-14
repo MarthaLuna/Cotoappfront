@@ -21,6 +21,7 @@ export const ShowControlGastos = ({ _id, concepto, monto, fecha_gasto, comproban
 
         navigate(`/GastosActualizarPage?name=${termUrl2}`);
     };
+
     const [openModal, setOpenModal] = useState(false)
     return (
         <>
