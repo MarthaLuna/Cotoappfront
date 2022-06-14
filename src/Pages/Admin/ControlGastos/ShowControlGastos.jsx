@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Dropdown from 'react-bootstrap/Dropdown';
 import Container from "react-bootstrap/Container";
 import { Link } from 'react-router-dom';
-import Modal from '../../../Components/Modal/Modal'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
@@ -48,9 +47,56 @@ export const ShowControlGastos = ({ _id, concepto, monto, fecha_gasto, comproban
                             </Link>
                         </h3>
                         <h3 className="m-0 p-0">
+                            <div
+                                class="modal fade"
+                                id="deleteModal"
+                                tabindex="-1"
+                                aria-labelledby="exampleModalLabel"
+                                aria-hidden="true"
+                            >
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">
+                                                Eliminar <span></span>
+                                            </h5>
+                                            <button
+                                                type="button"
+                                                class="btn-close"
+                                                data-bs-dismiss="modal"
+                                                aria-label="Close"
+                                            ></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ¿Seguro que deseas eliminar el residente selecionado?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button
+                                                type="button"
+                                                class="btn btn-secondary"
+                                                data-bs-dismiss="modal"
+                                            >
+                                                Cerrar
+                                            </button>
+                                            <form onSubmit={handleSubmit} id="deleteForm">
+                                                <button
+                                                    data-bs-id={_id}
+                                                    type="submit"
+                                                    class="btn btn-danger"
+                                                    data-bs-dismiss="modal"
+                                                >
+                                                    Eliminar
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a data-bs-toggle="modal" data-bs-target="#deleteModal" href="#">
 
-                            <i className="bi bi-trash-fill openModalBtn" id="borrar" onClick={() => setOpenModal(true)} style={{ cursor: 'pointer' }}></i>
-                            {openModal && <Modal closeModal={setOpenModal} />}
+                                <i className="bi bi-trash-fill openModalBtn" id="borrar" style={{ cursor: 'pointer' }}></i>
+                            </a>
+
 
                         </h3>
                     </h3>

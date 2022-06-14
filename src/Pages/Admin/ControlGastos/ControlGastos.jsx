@@ -6,11 +6,9 @@ import { ServiceRequest } from "../Services/ServiceRequest";
 import { ShowControlGastos } from "./ShowControlGastos";
 import { Link } from "react-router-dom";
 import Dropdown from 'react-bootstrap/Dropdown';
-import Modal from '../../../Components/Modal/Modal'
 
 
 const ControlGastos = () => {
-  const [openModal, setOpenModal] = useState(false)
   const [controlGastos, setControlGastos] = useState([]);
 
   const { loading, request, error, data } = useHttp(ServiceRequest);

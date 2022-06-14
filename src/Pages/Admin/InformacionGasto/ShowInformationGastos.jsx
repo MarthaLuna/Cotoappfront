@@ -3,7 +3,6 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import { Link } from 'react-router-dom';
-import Modal from '../../../Components/Modal/Modal'
 import Card from 'react-bootstrap/Card';
 import { FiEdit3 } from 'react-icons/fi'
 import { FaTrashAlt } from 'react-icons/fa'

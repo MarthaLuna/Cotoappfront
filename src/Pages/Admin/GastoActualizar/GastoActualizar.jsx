@@ -93,7 +93,7 @@ const GastoActualizar = () => {
                                     <td>
                                         {" "}
                                         <input
-                                            type="Concepto"
+                                            type="text"
                                             value={values.concepto}
                                             onChange={handleChange}
                                             name="Concepto"
