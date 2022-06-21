@@ -9,12 +9,14 @@ export const ResidenteHome = () => {
 
   const [name, setName] = useState("");
 
+
   const handleChange = ({ target }) => setName(target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name) return;
     const termUrl = encodeURIComponent(name.trim());
+
     navigate(`/buscarResidente?name=${termUrl}`);
   };
 
