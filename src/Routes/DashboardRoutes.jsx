@@ -12,6 +12,7 @@ import { BuscarPagosPage } from "../Pages/Pagos/BuscarPagosPage";
 import { CreatePagosPage } from "../Pages/Pagos/CreatePagosPage";
 import { UpdatePagosPage } from "../Pages/Pagos/UpdatePagosPage";
 import { PagosPage } from "../Pages/Pagos/PagosPage";
+import { RegisterAdmins } from "../Pages/RegisterAdmins/RegisterAdmins";
 
 export const DashboardRoutes = () => {
   return (
@@ -29,6 +30,7 @@ export const DashboardRoutes = () => {
       <Route path="/buscarResidente" element={<BuscarResidentesPage />} />
       <Route path="/crearResidente" element={<CreateResidentesPage />} />
       <Route path="/actualizarResidente" element={<UpdateResidentesPage />} />
+      <Route path="/registerAdmins" element={<RegisterAdmins />} />
     </Routes>
   );
 };
