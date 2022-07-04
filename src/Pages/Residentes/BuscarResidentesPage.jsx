@@ -14,7 +14,7 @@ import "./Residentes.scss";
 export const BuscarResidentesPage = () => {
   const location = useLocation();
   const { name } = queryString.parse(location.search);
-
+  console.log(location.search);
   const [residentes, setResidentes] = useState([]);
 
   const { loading, request, error, data } = useHttp(residentesBuscarRequest, {

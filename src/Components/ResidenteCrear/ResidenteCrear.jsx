@@ -5,8 +5,6 @@ import { useHttp } from "../../Hooks/useHttp";
 import { crearRRequest } from "./Services/CrearResidenteService";
 
 import "./ResidenteCrear.scss";
-
-import "./ResidenteCrear.scss";
 import useUser from "../../Hooks/useUser";
 
 export const ResidenteCrear = () => {

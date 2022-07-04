@@ -9,17 +9,67 @@ import { FaTrashAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
 import { useHttp } from '../../../Hooks/useHttp'
 import { ServiceRequest } from '../Services/ServiceRequest'
-import { ShowInformationGastos } from './ShowInformationGastos'
 import { NavAdmin } from '../../../Components/NavAdmin/NavAdmin'
 import { Footer } from '../../../Components/Home/Footer/Footer'
+import { ShowInformationGastos } from './ShowInformationGastos'
+import queryString from "query-string";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { ShowInformationRequest } from './Services/ShowInformationRequest'
+import { useFormik } from "formik";
 
 function InformacionGasto() {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const urlApi = process.env.REACT_APP_URL_API;
+    const { id } = queryString.parse(location.search);
+    console.log(queryString.parse(location.search))
     const [informacionGastos, setInformacionGastos] = useState([])
-    const { loading, request, error, data } = useHttp(ServiceRequest)
+    const { loading, request, error, data } = useHttp(ShowInformationRequest, {
+        nombre: values.nombre,
+        numCasa: values.numCasa,
+        email: values.email,
+        telefono: values.telefono,
+        id: id,
+    });
+    const {
+        handleSubmit,
+        handleChange,
+        values,
+        errors,
+        handleReset,
+        setFieldValue,
+    } = useFormik({
+        initialValues: {
+            nombre: "",
+            numCasa: "",
+            email: "",
+            telefono: "",
+        },
+        onSubmit: () => request(),
+        onReset: () => {
+            const source = document.getElementById("source");
+            source.innerText = "";
+        },
+    });
 
     useEffect(() => {
         request()
     }, [])
+    useEffect(() => {
+        async function fetchData() {
+            // You can await here
+
+            const result = await axios.get(`${urlApi}/residentes/${id}`);
+            const { nombre, email, casa, telefono } = result.data.payload;
+            setFieldValue("nombre", nombre);
+            setFieldValue("email", email);
+            setFieldValue("numCasa", casa);
+            setFieldValue("telefono", telefono);
+        }
+        fetchData();
+    }, []);
 
     useEffect(() => {
         if (Object.keys(data).length != 0) {
