@@ -17,7 +17,6 @@ export const Navbar = () => {
               width="50px"
             ></img>
           </Navbar2.Brand>
-          <div id="coto-name">Coto Obsidiana</div>
 
           <a className="btn btn-outline-light" href="/auth/login">
             Ingresa

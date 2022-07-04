@@ -24,7 +24,7 @@ export const ResidenteBuscar = ({
 
     const result = await axios.delete(`${urlApi}/residentes/${termUrl}`);
 
-    navigate(`/buscarResidente?name=${termUrl2}`);
+    navigate(`/dashboard/admin/buscarResidente?name=${termUrl2}`);
   };
 
   return (
@@ -98,7 +98,7 @@ export const ResidenteBuscar = ({
           </a>
         </td>
         <td>
-          <a href={`/actualizarResidente?id=${_id}`}>
+          <a href={`/dashboard/admin/actualizarResidente?id=${_id}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"

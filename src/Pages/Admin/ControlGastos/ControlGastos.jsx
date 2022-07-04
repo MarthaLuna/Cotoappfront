@@ -5,8 +5,7 @@ import { useHttp } from "../../../Hooks/useHttp";
 import { ServiceRequest } from "../Services/ServiceRequest";
 import { ShowControlGastos } from "./ShowControlGastos";
 import { Link } from "react-router-dom";
-import Dropdown from 'react-bootstrap/Dropdown';
-
+import Dropdown from "react-bootstrap/Dropdown";
 
 const ControlGastos = () => {
   const [controlGastos, setControlGastos] = useState([]);
@@ -25,24 +24,24 @@ const ControlGastos = () => {
 
   return (
     <>
-
       <div id="Home-Container">
         <NavAdmin />
-        <Link to="/admin/GastosCrear">
+        <Link to="/dashboard/admin/GastosCrear">
           <button type="button" className="red-button ">
-            <span  >
+            <span>
               Registrar Gasto
               <i className="ms-2 bi bi-plus-circle"></i>
             </span>
           </button>
         </Link>
         <div className="d-flex justify-content-between p-2 ">
-          <div className='d-flex justify-content-between'>
-            <button type="button" className="red-button">Mes Actual
+          <div className="d-flex justify-content-between">
+            <button type="button" className="red-button">
+              Mes Actual
             </button>
-            <button type="button" className="red-button">Año Actual
+            <button type="button" className="red-button">
+              Año Actual
             </button>
-
           </div>
 
           <div className="d-flex  ">
@@ -76,10 +75,8 @@ const ControlGastos = () => {
           {controlGastos.map((controlGasto) => (
             <ShowControlGastos key={controlGasto._id} {...controlGasto} />
           ))}
-
         </div>
         <Footer />
-
       </div>
     </>
   );

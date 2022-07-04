@@ -15,7 +15,7 @@ export const ResidenteHome = () => {
     e.preventDefault();
     if (!name) return;
     const termUrl = encodeURIComponent(name.trim());
-    navigate(`/buscarResidente?name=${termUrl}`);
+    navigate(`/dashboard/admin/buscarResidente?name=${termUrl}`);
   };
 
   return (
@@ -37,7 +37,7 @@ export const ResidenteHome = () => {
           </div>
           <a
             className="btn btn-outline-light btn-residente"
-            href="/crearResidente"
+            href="/dashboard/admin/crearResidente"
           >
             Crear Residente
           </a>
