@@ -6,8 +6,6 @@ import { crearRRequest } from "./Services/CrearPagoService";
 
 import "./PagoCrear.scss";
 
-import useUser from "../../Hooks/useUser";
-
 export const PagoCrear = () => {
   const navigate = useNavigate();
 
@@ -30,8 +28,10 @@ export const PagoCrear = () => {
   const { loading, request, error, data } = useHttp(crearRRequest, {
     casa: values.casa,
     monto: values.monto,
-    fecha: values.fecha,
-    concepto: values.concepto,
+    fecha_pago: values.fecha,
+    pago_id: values.concepto,
+    comprobante: "comprobante",
+    aprobado: true,
   });
 
   useEffect(() => {

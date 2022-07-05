@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./PagoHome.scss";
-import useUser from "../../Hooks/useUser";
 
 export const PagoHome = () => {
   const navigate = useNavigate();
@@ -15,7 +14,7 @@ export const PagoHome = () => {
     e.preventDefault();
     if (!name) return;
     const termUrl = encodeURIComponent(name.trim());
-    navigate(`/buscarPago?name=${termUrl}`);
+    navigate(`/dashboard/admin/buscarPago?name=${termUrl}`);
   };
 
   return (
@@ -30,6 +29,17 @@ export const PagoHome = () => {
               <span>&nbsp;&nbsp;&nbsp;</span>
               <button className="btn btn-outline-light btn-Pago">
                 Año Actual
+              </button>
+            </form>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="search"
+                placeholder="Ingresa nombre..."
+                onChange={handleChange}
+              ></input>
+              <span>&nbsp;&nbsp;&nbsp;</span>
+              <button className="btn btn-outline-light btn-residente">
+                Buscar
               </button>
             </form>
           </div>

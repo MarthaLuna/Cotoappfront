@@ -28,9 +28,9 @@ export const AdminRoutes = () => {
       <Route path="/actualizarResidente" element={<UpdateResidentesPage />} />
 
       <Route path="/pagos" element={<PagosPage />} />
-      <Route path="/buscarPagos" element={<BuscarPagosPage />} />
+      <Route path="/buscarPago" element={<BuscarPagosPage />} />
       <Route path="/crearPagos" element={<CreatePagosPage />} />
-      <Route path="/actualizarPagos" element={<UpdatePagosPage />} />
+      <Route path="/actualizarPago" element={<UpdatePagosPage />} />
 
       <Route path="/adminHome" element={<AdminHome />} />
       <Route path="/gastos" element={<GastosPage />} />
