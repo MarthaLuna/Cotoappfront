@@ -33,7 +33,10 @@ export const PagoHome = () => {
               </button>
             </form>
           </div>
-          <a className="btn btn-outline-light btn-Pago" href="/crearPago">
+          <a
+            className="btn btn-outline-light btn-Pago"
+            href="/dashboard/admin/crearPagos"
+          >
             Registrar Pago
           </a>
         </div>

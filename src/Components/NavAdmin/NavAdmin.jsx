@@ -34,14 +34,18 @@ export const NavAdmin = () => {
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
               <li>
-                <button class="dropdown-item" type="button">
+                <a class="dropdown-item" type="button">
                   Configurar
-                </button>
+                </a>
               </li>
               <li>
-                <button class="dropdown-item" type="button">
+                <a
+                  class="dropdown-item"
+                  type="button"
+                  href="/dashboard/admin/pagos"
+                >
                   Control
-                </button>
+                </a>
               </li>
             </ul>
           </div>
