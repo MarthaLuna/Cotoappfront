@@ -10,7 +10,6 @@ export const RegisterAdmins = () => {
         <div>
             <NavAdmin />
             <RegisterAdminsShowPage />
-            <h1>RegisterAdmins now show page</h1>
             <Footer />
 
 

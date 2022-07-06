@@ -12,6 +12,7 @@ import { Home } from "../Components/Home/Home";
 import { LoginPage } from "../Pages/Login/LoginPage";
 import { DashboardRoutes } from "./DashboardRoutes";
 import { UserContext } from "../context/UserContext";
+import { RegisterAdminsShowPage } from "../Pages/RegisterAdmins/RegisterAdminsShowPage";
 
 export const AppRoutes = () => {
   const [check, setCheck] = useState(true);

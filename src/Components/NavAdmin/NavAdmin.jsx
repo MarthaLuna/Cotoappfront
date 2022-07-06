@@ -51,7 +51,7 @@ export const NavAdmin = () => {
           </div>
         </div>
         <div id="coto-name">
-          <a id="link_nav" href="#">
+          <a id="link_nav" href="/dashboard/admin/controlGastos">
             Gastos
           </a>
         </div>

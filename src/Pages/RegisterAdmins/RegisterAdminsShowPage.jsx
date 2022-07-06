@@ -11,9 +11,10 @@ export const RegisterAdminsShowPage = () => {
         initialValues: {
             nombre: "",
             email: "",
+            casa: "",
+            telefono: "",
             nombreCoto: "",
-            logo: "",
-            password: "",
+
         },
         validate: (values) => {
             const errors = {};
@@ -32,9 +33,9 @@ export const RegisterAdminsShowPage = () => {
     const { loading, request, error, data } = useHttp(RegisterAdminsServiceRequest, {
         nombre: values.nombre,
         email: values.email,
+        casa: values.casa,
+        telefono: values.telefono,
         nombreCoto: values.nombreCoto,
-        logo: values.logo,
-        password: values.password,
     });
 
     useEffect(() => {
@@ -101,7 +102,37 @@ export const RegisterAdminsShowPage = () => {
                                 <tr>
                                     <td>
                                         <span>
-                                            Nombre Coto:
+                                            Casa:
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="casa"
+                                            value={values.casa}
+                                            onChange={handleChange}
+                                            name="casa"
+                                        ></input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>
+                                            Telefono:
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="telefono"
+                                            value={values.telefono}
+                                            onChange={handleChange}
+                                            name="telefono"
+                                        ></input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>
+                                            nombreCoto:
                                         </span>
                                     </td>
                                     <td>
@@ -110,36 +141,6 @@ export const RegisterAdminsShowPage = () => {
                                             value={values.nombreCoto}
                                             onChange={handleChange}
                                             name="nombreCoto"
-                                        ></input>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span>
-                                            Logo:
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <input
-                                            type="logo"
-                                            value={values.logo}
-                                            onChange={handleChange}
-                                            name="logo"
-                                        ></input>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span>
-                                            Password:
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <input
-                                            type="password"
-                                            value={values.password}
-                                            onChange={handleChange}
-                                            name="password"
                                         ></input>
                                     </td>
                                 </tr>
