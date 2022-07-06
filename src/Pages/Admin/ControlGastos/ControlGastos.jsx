@@ -6,6 +6,7 @@ import { ServiceRequest } from "../Services/ServiceRequest";
 import { ShowControlGastos } from "./ShowControlGastos";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
+import './ControlGastos.scss'
 
 const ControlGastos = () => {
   const [controlGastos, setControlGastos] = useState([]);
@@ -24,14 +25,12 @@ const ControlGastos = () => {
 
   return (
     <>
-      <div id="Home-Container">
-        <NavAdmin />
+      <NavAdmin />
+      <div className="w-100 d-none d-md-inline">
         <Link to="/dashboard/admin/GastosCrear">
           <button type="button" className="red-button ">
-            <span>
-              Registrar Gasto
-              <i className="ms-2 bi bi-plus-circle"></i>
-            </span>
+            Registrar Gasto
+            <i className="ms-2 bi bi-plus-circle"></i>
           </button>
         </Link>
         <div className="d-flex justify-content-between p-2 ">
@@ -71,7 +70,7 @@ const ControlGastos = () => {
           </div>
         </div>
 
-        <div className="text-secondary">
+        <div style={{ padding: "40px" }}>
           {controlGastos.map((controlGasto) => (
             <ShowControlGastos key={controlGasto._id} {...controlGasto} />
           ))}

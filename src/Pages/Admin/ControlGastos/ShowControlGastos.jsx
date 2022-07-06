@@ -4,7 +4,9 @@ import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import moment from "moment";
+import 'moment/locale/es';
+import './ControlGastos.scss'
 const urlApi = process.env.REACT_APP_URL_API;
 
 export const ShowControlGastos = ({
@@ -28,92 +30,105 @@ export const ShowControlGastos = ({
 
     navigate(`/GastosActualizarPage?name=${termUrl2}`);
   };
-
   const [openModal, setOpenModal] = useState(false);
+
   return (
     <>
-      <thead id="tabla-pagos" className="table bg-white">
-        <tr>
-          <th scope="col">Concepto</th>
-          <th scope="col">Mes</th>
-          <th scope="col">Monto</th>
-          <th scope="col">Comprobante</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr id="tabla-pagos" className="table bg-white">
-          <th scope="row">{concepto}</th>
-          <td>{fecha_gasto}</td>
-          <td>{monto}</td>
-          <td>{comprobante}</td>
+      <div className="w-100 d-none d-md-inline">
 
-          <button>
-            {" "}
-            <Link to="/dashboard/admin/informacion-gasto">Ver Gasto</Link>
-          </button>
-          <h3 className="m-0 p-0">
-            <h3 className="m-0 p-0">
-              <Link to={`/dashboard/admin/GastosActualizarPage?id=${_id}`}>
-                <i className="me-3 bi bi-pencil-fill" id="editar"></i>
-              </Link>
-            </h3>
-            <h3 className="m-0 p-0">
-              <div
-                class="modal fade"
-                id="deleteModal"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">
-                        Eliminar <span></span>
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      ¿Seguro que deseas eliminar el residente selecionado?
-                    </div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Cerrar
-                      </button>
-                      <form onSubmit={handleSubmit} id="deleteForm">
+
+        <table id="tabla-reporte" className="table bg-white ">
+          <thead  >
+            <tr>
+              <th scope="col" className="text-center">Concepto</th>
+              <th scope="col">Mes</th>
+              <th scope="col">Monto</th>
+              <th scope="col">Comprobante</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr >
+              <th scope="row" className="text-center">{concepto}</th>
+              <td>{moment(fecha_gasto).format('LL')}</td>
+              <td>{monto}</td>
+              <td>{comprobante}</td>
+              <td>
+
+                <span className="text-center">
+
+                  {" "}
+                  <Link to="/dashboard/admin/informacion-gasto">Visualizar Gasto</Link>
+
+                </span>
+              </td>
+              <td>
+                <h3 className="m-0 p-0">
+                  <Link to={`/dashboard/admin/GastosActualizarPage?id=${_id}`}>
+                    <i className="me-3 bi bi-pencil-fill" id="editar"></i>
+                  </Link>
+                </h3>
+              </td>
+
+              <h3 className="m-0 p-0">
+
+
+                <div
+                  class="modal fade"
+                  id="deleteModal"
+                  tabindex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">
+                          <span> Eliminar </span>
+                        </h5>
                         <button
-                          data-bs-id={_id}
-                          type="submit"
-                          class="btn btn-danger"
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        ¿Seguro que deseas eliminar el residente selecionado?
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
                           data-bs-dismiss="modal"
                         >
-                          Eliminar
+                          Cerrar
                         </button>
-                      </form>
+                        <form onSubmit={handleSubmit} id="deleteForm">
+                          <button
+                            data-bs-id={_id}
+                            type="submit"
+                            class="btn btn-danger"
+                            data-bs-dismiss="modal"
+                          >
+                            Eliminar
+                          </button>
+                        </form>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <a data-bs-toggle="modal" data-bs-target="#deleteModal" href="#">
-                <i
-                  className="bi bi-trash-fill openModalBtn"
-                  id="borrar"
-                  style={{ cursor: "pointer" }}
-                ></i>
-              </a>
-            </h3>
-          </h3>
-        </tr>
-      </tbody>
+                <a data-bs-toggle="modal" data-bs-target="#deleteModal" href="#">
+                  <i
+                    className="bi bi-trash-fill openModalBtn"
+                    id="borrar"
+                    style={{ cursor: "pointer", padding: "20px" }}
+                  ></i>
+                </a>
+              </h3>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };

@@ -1,19 +1,19 @@
 @use "../../../../colors";
 @import "~bootstrap/scss/bootstrap";
-
-#tabla-reporte{
-    border-radius:20px;
+#tabla-reporte {
+    border-radius: 20px;
 }
 
-tr,th,td{
-    border:none;
+tr,
+th,
+td {
+    border: none;
 }
 
-th{
-    color:green;
+th {
+    color: green;
 }
 
-td{
-    color:grey;
+td {
+    color: grey;
 }
-
