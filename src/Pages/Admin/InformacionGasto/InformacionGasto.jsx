@@ -1,23 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import { TiCancel } from "react-icons/ti"
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
-import { FiEdit3 } from 'react-icons/fi'
-import { FaTrashAlt } from 'react-icons/fa'
-import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 import { useHttp } from '../../../Hooks/useHttp'
-import { ServiceRequest } from '../Services/ServiceRequest'
 import { NavAdmin } from '../../../Components/NavAdmin/NavAdmin'
 import { Footer } from '../../../Components/Home/Footer/Footer'
 import { ShowInformationGastos } from './ShowInformationGastos'
 import queryString from "query-string";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { ShowInformationRequest } from './Services/ShowInformationRequest'
 import { useFormik } from "formik";
+import { useLocation } from "react-router-dom";
 
 function InformacionGasto() {
     const navigate = useNavigate();
@@ -25,14 +17,7 @@ function InformacionGasto() {
     const urlApi = process.env.REACT_APP_URL_API;
     const { id } = queryString.parse(location.search);
     console.log(queryString.parse(location.search))
-    const [informacionGastos, setInformacionGastos] = useState([])
-    const { loading, request, error, data } = useHttp(ShowInformationRequest, {
-        nombre: values.nombre,
-        numCasa: values.numCasa,
-        email: values.email,
-        telefono: values.telefono,
-        id: id,
-    });
+
     const {
         handleSubmit,
         handleChange,
@@ -42,11 +27,12 @@ function InformacionGasto() {
         setFieldValue,
     } = useFormik({
         initialValues: {
-            nombre: "",
-            numCasa: "",
-            email: "",
-            telefono: "",
+            concepto: "",
+            monto: "",
+            fecha_gasto: "",
+            comprobante: "",
         },
+
         onSubmit: () => request(),
         onReset: () => {
             const source = document.getElementById("source");
@@ -54,51 +40,121 @@ function InformacionGasto() {
         },
     });
 
+    const { loading, request, error, data } = useHttp(ShowInformationRequest, {
+        concepto: values.concepto,
+        monto: values.monto,
+        fecha_gasto: values.fecha_gasto,
+        comprobante: values.comprobante,
+        id: id,
+    });
+
     useEffect(() => {
-        request()
-    }, [])
+        if (data.success) {
+            navigate(".");
+            const source = document.getElementById("source");
+            source.innerText = "Residente actualizado exitosamente";
+        } else if (data.success == false) {
+            navigate(".");
+            const source = document.getElementById("source");
+            source.innerText = "Residente no se pudo actualizar";
+        } else {
+            const source = document.getElementById("source");
+            source.innerText = "";
+        }
+    }, [data]);
+
     useEffect(() => {
         async function fetchData() {
             // You can await here
 
-            const result = await axios.get(`${urlApi}/residentes/${id}`);
-            const { nombre, email, casa, telefono } = result.data.payload;
-            setFieldValue("nombre", nombre);
-            setFieldValue("email", email);
-            setFieldValue("numCasa", casa);
-            setFieldValue("telefono", telefono);
+            const result = await axios.get(`${urlApi}/gastos/${id}`);
+            const { concepto, monto, fecha_gasto, comprobante } = result.data.payload;
+            setFieldValue("concepto", concepto);
+            setFieldValue("monto", monto);
+            setFieldValue("fecha_gasto", fecha_gasto);
+            setFieldValue("comprobante", comprobante);
         }
         fetchData();
     }, []);
 
-    useEffect(() => {
-        if (Object.keys(data).length != 0) {
-            setInformacionGastos(data.payload);
-            // console.log(data.payload);
-            // console.log(Object.keys(data.payload[0]).toString())
-        }
-    }, [data]);
 
     return (
-        <>
-            <div id="Home-Container">
-                <NavAdmin />
-                <div className="text-secondary">
-                    {informacionGastos.map((informacionGasto) => (
+        <div className="ResidenteCMain">
+            <div className="ResidenteCContainer">
+                <div className="ResidenteCContent">
+                    <form
+                        onSubmit={handleSubmit}
+                        onReset={handleReset}
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                        }}
+                    >
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span>Concepto: </span>
+                                    </td>
+                                    <td>
+                                        {" "}
+                                        <input
+                                            type="concepto"
+                                            value={values.concepto}
+                                            onChange={handleChange}
+                                            name="concepto"
+                                        ></input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Monto: </span>
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="monto"
+                                            value={values.monto}
+                                            onChange={handleChange}
+                                            name="monto"
+                                        ></input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Fecha de gasto: </span>
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="fecha_gasto"
+                                            value={values.fecha_gasto}
+                                            onChange={handleChange}
+                                            name="fecha_gasto"
+                                        ></input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Comprobante: </span>
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="comprobante"
+                                            value={values.comprobante}
+                                            onChange={handleChange}
+                                            name="comprobante"
+                                        ></input>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-
-                        <ShowInformationGastos key={informacionGasto._id}{...informacionGasto} />
-                    ))}
+                        <div id="source"></div>
+                    </form>
                 </div>
-                <Footer />
             </div>
+        </div>
 
-
-
-
-
-
-        </>
     )
 }
 
