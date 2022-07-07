@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import { useHttp } from '../../../Hooks/useHttp'
 import { NavAdmin } from '../../../Components/NavAdmin/NavAdmin'
 import { Footer } from '../../../Components/Home/Footer/Footer'
@@ -19,11 +19,7 @@ function InformacionGasto() {
     console.log(queryString.parse(location.search))
 
     const {
-        handleSubmit,
-        handleChange,
         values,
-        errors,
-        handleReset,
         setFieldValue,
     } = useFormik({
         initialValues: {
@@ -32,37 +28,7 @@ function InformacionGasto() {
             fecha_gasto: "",
             comprobante: "",
         },
-
-        onSubmit: () => request(),
-        onReset: () => {
-            const source = document.getElementById("source");
-            source.innerText = "";
-        },
     });
-
-    const { loading, request, error, data } = useHttp(ShowInformationRequest, {
-        concepto: values.concepto,
-        monto: values.monto,
-        fecha_gasto: values.fecha_gasto,
-        comprobante: values.comprobante,
-        id: id,
-    });
-
-    useEffect(() => {
-        if (data.success) {
-            navigate(".");
-            const source = document.getElementById("source");
-            source.innerText = "Residente actualizado exitosamente";
-        } else if (data.success == false) {
-            navigate(".");
-            const source = document.getElementById("source");
-            source.innerText = "Residente no se pudo actualizar";
-        } else {
-            const source = document.getElementById("source");
-            source.innerText = "";
-        }
-    }, [data]);
-
     useEffect(() => {
         async function fetchData() {
             // You can await here
@@ -77,18 +43,17 @@ function InformacionGasto() {
         fetchData();
     }, []);
 
-
     return (
         <div className="ResidenteCMain">
             <div className="ResidenteCContainer">
                 <div className="ResidenteCContent">
                     <form
-                        onSubmit={handleSubmit}
-                        onReset={handleReset}
+
                         style={{
                             display: "flex",
-                            flexDirection: "column",
+                            flexDirection: "row",
                             alignItems: "center",
+                            justifyContent: "center",
                         }}
                     >
                         <table>
@@ -102,7 +67,6 @@ function InformacionGasto() {
                                         <input
                                             type="concepto"
                                             value={values.concepto}
-                                            onChange={handleChange}
                                             name="concepto"
                                         ></input>
                                     </td>
@@ -115,7 +79,6 @@ function InformacionGasto() {
                                         <input
                                             type="monto"
                                             value={values.monto}
-                                            onChange={handleChange}
                                             name="monto"
                                         ></input>
                                     </td>
@@ -128,7 +91,6 @@ function InformacionGasto() {
                                         <input
                                             type="fecha_gasto"
                                             value={values.fecha_gasto}
-                                            onChange={handleChange}
                                             name="fecha_gasto"
                                         ></input>
                                     </td>
@@ -141,7 +103,6 @@ function InformacionGasto() {
                                         <input
                                             type="comprobante"
                                             value={values.comprobante}
-                                            onChange={handleChange}
                                             name="comprobante"
                                         ></input>
                                     </td>
@@ -151,6 +112,9 @@ function InformacionGasto() {
 
                         <div id="source"></div>
                     </form>
+                    <Link to='../controlGastos'>
+                        <button id="button_enviar">regresar</button>
+                    </Link>
                 </div>
             </div>
         </div>

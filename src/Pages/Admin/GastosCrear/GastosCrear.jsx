@@ -128,7 +128,8 @@ const GastosCrear = () => {
                                     Limpiar
                                 </button>
 
-                                <button id="button_enviar" type="submit">
+                                <button id="button_enviar" type="submit"
+                                    onClick={() => setTimeout(() => { navigate('../controlGastos') }, 1000)}>
                                     Registrar
                                 </button>
                             </div>

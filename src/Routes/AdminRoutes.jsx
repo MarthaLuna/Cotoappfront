@@ -18,6 +18,7 @@ import { ResidentesPage } from "../Pages/Residentes/ResidentesPage";
 import { BuscarResidentesPage } from "../Pages/Residentes/BuscarResidentesPage";
 import { CreateResidentesPage } from "../Pages/Residentes/CreateResidentesPage";
 import { UpdateResidentesPage } from "../Pages/Residentes/UpdateResidentesPage";
+import { RegisterAdmins } from "../Pages/RegisterAdmins/RegisterAdmins";
 
 export const AdminRoutes = () => {
   return (
@@ -33,12 +34,11 @@ export const AdminRoutes = () => {
       <Route path="/actualizarPago" element={<UpdatePagosPage />} />
 
       <Route path="/adminHome" element={<AdminHome />} />
-      <Route path="/gastos" element={<GastosPage />} />
       <Route path="/controlGastos" element={<ControlGastos />} />
       <Route path="/informacion-gasto" element={<InformacionGasto />} />
-      <Route path="/editar-gasto" element={<EditarGasto />} />
       <Route path="/GastosCrear" element={<GastosCrear />} />
       <Route path="/GastosActualizarPage" element={<GastosActualizarPage />} />
+      <Route path="/registerAdmins" element={<RegisterAdmins />} />
     </Routes>
   );
 };
