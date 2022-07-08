@@ -6,12 +6,16 @@ import { ActualizarGastoRequest } from "./Services/ActualizarGastoRequest";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 import axios from "axios";
+import moment from "moment";
+import 'moment/locale/es';
+import '../../../Components/ResidenteActualizar/ResidenteActualizar.scss'
 
 const GastoActualizar = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const urlApi = process.env.REACT_APP_URL_API;
     const { id } = queryString.parse(location.search);
+    console.log(queryString.parse(location.search))
 
     const {
         handleSubmit,
@@ -40,7 +44,7 @@ const GastoActualizar = () => {
         monto: values.monto,
         fecha_gasto: values.fecha_gasto,
         comprobante: values.comprobante,
-        id: id
+        id: id,
     });
 
     useEffect(() => {
@@ -93,10 +97,10 @@ const GastoActualizar = () => {
                                     <td>
                                         {" "}
                                         <input
-                                            type="text"
+                                            type="concepto"
                                             value={values.concepto}
                                             onChange={handleChange}
-                                            name="Concepto"
+                                            name="concepto"
                                         ></input>
                                     </td>
                                 </tr>
@@ -106,10 +110,10 @@ const GastoActualizar = () => {
                                     </td>
                                     <td>
                                         <input
-                                            type="Monto"
+                                            type="monto"
                                             value={values.monto}
                                             onChange={handleChange}
-                                            name="Monto"
+                                            name="monto"
                                         ></input>
                                     </td>
                                 </tr>
@@ -119,10 +123,10 @@ const GastoActualizar = () => {
                                     </td>
                                     <td>
                                         <input
-                                            type="Fecha"
-                                            value={values.fecha_gasto}
+                                            type="fecha_gasto"
+                                            value={moment(values.fecha_gasto).format('LL')}
                                             onChange={handleChange}
-                                            name="Fecha"
+                                            name="fecha_gasto"
                                         ></input>
                                     </td>
                                 </tr>
@@ -132,10 +136,10 @@ const GastoActualizar = () => {
                                     </td>
                                     <td>
                                         <input
-                                            type="Comprobante"
+                                            type="comprobante"
                                             value={values.comprobante}
                                             onChange={handleChange}
-                                            name="Comprobante"
+                                            name="comprobante"
                                         ></input>
                                     </td>
                                 </tr>
@@ -146,7 +150,9 @@ const GastoActualizar = () => {
                                 Limpiar
                             </button>
 
-                            <button id="button_enviar" type="submit">
+                            <button id="button_enviar" type="submit"
+                                onClick={() => setTimeout(() => { navigate('../controlGastos') }, 1000)}>
+
                                 Actualizar
                             </button>
                         </div>

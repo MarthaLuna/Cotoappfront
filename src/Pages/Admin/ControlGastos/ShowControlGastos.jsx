@@ -57,8 +57,7 @@ export const ShowControlGastos = ({
                 <span className="text-center">
 
                   {" "}
-                  <Link to="/dashboard/admin/informacion-gasto">Visualizar Gasto</Link>
-
+                  <Link to={`/dashboard/admin/informacion-gasto?id=${_id}`}>Visualizar Gasto</Link>
                 </span>
               </td>
               <td>

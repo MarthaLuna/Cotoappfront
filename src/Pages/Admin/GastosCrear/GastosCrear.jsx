@@ -5,6 +5,8 @@ import { useHttp } from "../../../Hooks/useHttp";
 import { CrearGastosServiceRequest } from "./Services/CrearGastoService";
 import { NavAdmin } from "../../../Components/NavAdmin";
 import { Footer } from "../../../Components/Home/Footer";
+import moment from "moment";
+import 'moment/locale/es';
 
 const GastosCrear = () => {
     const navigate = useNavigate();
@@ -126,8 +128,9 @@ const GastosCrear = () => {
                                     Limpiar
                                 </button>
 
-                                <button id="button_enviar" type="submit">
-                                    Enviar
+                                <button id="button_enviar" type="submit"
+                                    onClick={() => setTimeout(() => { navigate('../controlGastos') }, 1000)}>
+                                    Registrar
                                 </button>
                             </div>
                             <div id="source"></div>

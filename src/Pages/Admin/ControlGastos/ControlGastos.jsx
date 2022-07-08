@@ -70,7 +70,7 @@ const ControlGastos = () => {
           </div>
         </div>
 
-        <div style={{ padding: "40px" }}>
+        <div style={{ padding: "40px" }} >
           {controlGastos.map((controlGasto) => (
             <ShowControlGastos key={controlGasto._id} {...controlGasto} />
           ))}

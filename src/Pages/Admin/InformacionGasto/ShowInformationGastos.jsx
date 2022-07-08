@@ -14,18 +14,10 @@ import { useHttp } from '../../../Hooks/useHttp';
 import queryString from "query-string";
 import { useLocation } from "react-router-dom";
 
-export const ShowInformationGastos = ({ _id, concepto, monto, fecha_gasto, comprobante, descripcion, imagen_mejora }) => {
+export const ShowInformationGastos = ({ _id, concepto, monto, fecha_gasto, comprobante, }) => {
 
-    const { loading, request, error, data } = useHttp(ShowInformationRequest, {
-        concepto: values.concepto,
-        monto: values.monto,
-        fecha_gasto: values.fecha_gasto,
-        comprobante: values.comprobante,
-        id: id
-    });
-    useEffect(() => {
-        request()
-    }, [])
+    const location = useLocation();
+    const { id } = queryString.parse(location.search);
     const {
         handleSubmit,
         handleChange,
@@ -40,90 +32,106 @@ export const ShowInformationGastos = ({ _id, concepto, monto, fecha_gasto, compr
             fecha_gasto: "",
             comprobante: "",
         },
-    })
+
+        onSubmit: () => request(),
+        onReset: () => {
+            const source = document.getElementById("source");
+            source.innerText = "";
+        },
+    });
+    const { loading, request, error, data } = useHttp(ShowInformationRequest, {
+        concepto: values.concepto,
+        monto: values.monto,
+        fecha_gasto: values.fecha_gasto,
+        comprobante: values.comprobante,
+        id: id,
+    });
     const urlApi = process.env.REACT_APP_URL_API;
-    const location = useLocation();
-    const { id } = queryString.parse(location.search);
 
     return (
-        <>
-            <section className="d-flex  w-100 m-5">
-                <div className="  w-100">
-                    <Container>
-                        <div className="mb-4 w-100 " style={{ color: "white" }}>
-                            <h2 className="position-absolute top- start-50 translate-middle ">
-                                Información de Gasto
-                            </h2>
+        <div className="ResidenteCMain">
+            <div className="ResidenteCContainer">
+                <div className="ResidenteCContent">
+                    <form
+                        onSubmit={handleSubmit}
+                        onReset={handleReset}
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                        }}
+                    >
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span>Concepto: </span>
+                                    </td>
+                                    <td>
+                                        {" "}
+                                        <input
+                                            type="concepto"
+                                            value={values.concepto}
+                                            onChange={handleChange}
+                                            name="concepto"
+                                        ></input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Monto: </span>
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="monto"
+                                            value={values.monto}
+                                            onChange={handleChange}
+                                            name="monto"
+                                        ></input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Fecha de Gasto: </span>
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="fecha_gasto"
+                                            value={values.fecha_gasto}
+                                            onChange={handleChange}
+                                            name="fecha_gasto"
+                                        ></input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Comprobante: </span>
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="comprobante"
+                                            value={values.comprobante}
+                                            onChange={handleChange}
+                                            name="comprobante"
+                                        ></input>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div className="botones_f">
+                            <button id="button_limpiar" type="reset">
+                                Limpiar
+                            </button>
+
+                            <button id="button_enviar" type="submit">
+                                Actualizar
+                            </button>
                         </div>
-                    </Container >
+                        <div id="source"></div>
+                    </form>
                 </div>
-            </section>
-            <section>
-                <Container className=" p-4 d-flex flex-row justify-content-center w-100">
-                    <div className="d-flex p-3">
-                        <div>
-                            <Card style={{ width: '20rem' }} className="mb-4 p-3">
-
-                                <Card.Body >
-
-                                    <form className='p-3'>
-                                        <label>ID Gasto: </label>
-
-                                        <label>{concepto}</label>
-
-
-
-                                        <label>Concepto :       </label>
-                                        <label htmlFor="" >{monto}</label>
-
-
-                                        <form action="" >
-                                            <label>Monto: </label>
-                                            <label htmlFor="">{fecha_gasto}</label>
-
-                                        </form>
-
-
-                                        <label>Descripción </label>
-                                        <label htmlFor="">{comprobante}</label>
-                                    </form>
-
-                                </Card.Body>
-                            </Card>
-
-                            <button type="button" className="red-button ">
-                                <span >
-                                    Editar <FiEdit3 />
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div className=' d-flex p-3'>
-                        <div   >
-                            <Card style={{ width: '18rem' }} className="mb-4" >
-                                <Card.Body >
-                                    <Card.Title className="d-flex justify-content-center" >Imagen adjunta</Card.Title>
-                                    <Card.Img variant="top" src="https://www.comex.com.mx/getattachment/3d9dec4b-ed25-46ac-9ef0-447905365eca/.aspx/" />
-                                </Card.Body>
-                            </Card>
-                            <button type="button" className="red-button ml-4 ">
-                                <span >
-                                    Eliminar <FaTrashAlt />
-                                </span>
-                            </button>
-                            <Link to="/admin/controlGastos">
-                                <Button className='m-2' variant="dark">Cancelar <TiCancel /></Button>{' '}
-                            </Link>
-                        </div>
-
-
-                    </div>
-
-
-                </Container>
-            </section>
-        </>
+            </div>
+        </div>
     )
 }
 
