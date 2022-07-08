@@ -38,7 +38,7 @@ export const Navbar = () => {
           <div id="coto-name">Coto Obsidiana</div>
 
           <a className="btn btn-outline-light" href="/auth/login">
-            Salir
+            Ingresar
           </a>
         </Container>
       </Navbar2>

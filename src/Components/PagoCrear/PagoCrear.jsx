@@ -70,12 +70,26 @@ export const PagoCrear = () => {
                   </td>
                   <td>
                     {" "}
-                    <input
-                      type="casa"
+                    <select
+                      name="casa"
                       value={values.casa}
                       onChange={handleChange}
-                      name="casa"
-                    ></input>
+                    >
+                      <option value="" label="Casa">
+                        Casa{" "}
+                      </option>
+                      <option value="1" label="1">
+                        {" "}
+                        red
+                      </option>
+                      <option value="2" label="2">
+                        blue
+                      </option>
+
+                      <option value="3" label="3">
+                        green
+                      </option>
+                    </select>
                   </td>
                 </tr>
                 <tr>
@@ -97,7 +111,7 @@ export const PagoCrear = () => {
                   </td>
                   <td>
                     <input
-                      type="fecha"
+                      type="date"
                       value={values.fecha}
                       onChange={handleChange}
                       name="fecha"
@@ -109,12 +123,26 @@ export const PagoCrear = () => {
                     <span>Concepto: </span>
                   </td>
                   <td>
-                    <input
-                      type="concepto"
+                    <select
+                      name="concepto"
                       value={values.concepto}
                       onChange={handleChange}
-                      name="concepto"
-                    ></input>
+                    >
+                      <option value="" label="Concepto">
+                        Concepto{" "}
+                      </option>
+                      <option value="Mantenimiento" label="Mantenimiento">
+                        {" "}
+                        Mantenimiento
+                      </option>
+                      <option value="Llaves" label="Llaves">
+                        Llaves
+                      </option>
+
+                      <option value="Control" label="Control">
+                        Escalera
+                      </option>
+                    </select>
                   </td>
                 </tr>
               </tbody>

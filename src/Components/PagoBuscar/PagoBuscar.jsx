@@ -7,12 +7,11 @@ const urlApi = process.env.REACT_APP_URL_API;
 
 export const PagoBuscar = ({
   _id,
-  nombre,
-  email,
   casa,
-  telefono,
-  user,
-  permisos,
+  fecha_pago,
+  monto,
+  comprobante,
+  nombre,
 }) => {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
@@ -27,6 +26,24 @@ export const PagoBuscar = ({
     navigate(`/dashboard/admin/buscarPago?name=${termUrl2}`);
   };
 
+  const monthNames = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+
+  const getLongMonthName = function (date) {
+    return monthNames[date.getMonth()];
+  };
   return (
     <>
       <div
@@ -75,10 +92,12 @@ export const PagoBuscar = ({
         </div>
       </div>
       <tr>
-        <td>{nombre}</td>
         <td>{casa}</td>
-        <td>{email}</td>
-        <td>{telefono}</td>
+        <td>{getLongMonthName(new Date(fecha_pago))}</td>
+        <td>{monto}</td>
+        <td>
+          <a href="#">Ver pago</a>
+        </td>
         <td>
           <a data-bs-toggle="modal" data-bs-target="#deleteModal" href="#">
             <svg

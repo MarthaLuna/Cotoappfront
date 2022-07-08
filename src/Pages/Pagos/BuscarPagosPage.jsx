@@ -38,10 +38,10 @@ export const BuscarPagosPage = () => {
         <table>
           <thead>
             <tr>
-              <th>Nombre</th>
               <th>No. Casa</th>
-              <th>Email</th>
-              <th>Telefono</th>
+              <th>Mes</th>
+              <th>Monto</th>
+              <th>Comprobante</th>
               <th></th>
               <th></th>
             </tr>
