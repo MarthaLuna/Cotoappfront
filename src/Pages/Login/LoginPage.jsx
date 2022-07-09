@@ -45,7 +45,7 @@ export const LoginPage = () => {
       localStorage.setItem("token", data.payload);
       localStorage.setItem("role", data.role);
       if (data.role == "admin") navigate("/dashboard/admin/adminHome");
-      else navigate("/reportes");
+      else navigate("/dashboard/residentes/residentesHome");
     }
   }, [data]);
 

@@ -1,0 +1,1 @@
+export { NavResidentes } from "./NavResidentes";

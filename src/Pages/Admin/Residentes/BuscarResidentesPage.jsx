@@ -2,12 +2,12 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 
-import { NavAdmin } from "../../Components/NavAdmin";
+import { NavAdmin } from "../../../Components/NavAdmin";
 
-import { Footer } from "../../Components/Home/Footer";
-import { ResidenteBuscar } from "../../Components/ResidenteBuscar";
+import { Footer } from "../../../Components/Home/Footer";
+import { ResidenteBuscar } from "../../../Components/ResidenteBuscar";
 import { useEffect, useState } from "react";
-import { useHttp } from "../../Hooks/useHttp";
+import { useHttp } from "../../../Hooks/useHttp";
 import { residentesBuscarRequest } from "./Services/Buscar";
 import "./Residentes.scss";
 

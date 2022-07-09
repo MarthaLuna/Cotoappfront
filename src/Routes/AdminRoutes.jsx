@@ -14,10 +14,10 @@ import { BuscarPagosPage } from "../Pages/Pagos/BuscarPagosPage";
 import { CreatePagosPage } from "../Pages/Pagos/CreatePagosPage";
 import { UpdatePagosPage } from "../Pages/Pagos/UpdatePagosPage";
 
-import { ResidentesPage } from "../Pages/Residentes/ResidentesPage";
-import { BuscarResidentesPage } from "../Pages/Residentes/BuscarResidentesPage";
-import { CreateResidentesPage } from "../Pages/Residentes/CreateResidentesPage";
-import { UpdateResidentesPage } from "../Pages/Residentes/UpdateResidentesPage";
+import { ResidentesPage } from "../Pages/Admin/Residentes/ResidentesPage";
+import { BuscarResidentesPage } from "../Pages/Admin/Residentes/BuscarResidentesPage";
+import { CreateResidentesPage } from "../Pages/Admin/Residentes/CreateResidentesPage";
+import { UpdateResidentesPage } from "../Pages/Admin/Residentes/UpdateResidentesPage";
 import { RegisterAdmins } from "../Pages/RegisterAdmins/RegisterAdmins";
 
 export const AdminRoutes = () => {
