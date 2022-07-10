@@ -3,9 +3,17 @@ import Navbar2 from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import "./NavAdmin.scss";
 import useUser from "../../Hooks/useUser";
+import { useNavigate } from "react-router-dom";
 
 export const NavAdmin = () => {
-  const { token, isLoggedAdminIn } = useUser();
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    navigate("/");
+  };
 
   return (
     <Navbar2 className="mb-2" sticky="top" id="Navbar-container">
@@ -60,10 +68,11 @@ export const NavAdmin = () => {
             Reportes
           </a>
         </div>
-
-        <a className="btn btn-outline-light" href="">
-          Salir
-        </a>
+        <form onSubmit={handleSubmit} id="deleteForm">
+          <button className="btn btn-outline-light" type="submit">
+            Salir
+          </button>
+        </form>
       </Container>
     </Navbar2>
   );
