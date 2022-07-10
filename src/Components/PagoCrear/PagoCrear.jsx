@@ -1,13 +1,31 @@
 import { useFormik } from "formik";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useHttp } from "../../Hooks/useHttp";
 import { crearRRequest } from "./Services/CrearPagoService";
-
+import axios from "axios";
 import "./PagoCrear.scss";
+
+const urlApi = process.env.REACT_APP_URL_API;
 
 export const PagoCrear = () => {
   const navigate = useNavigate();
+  const [casas, setCasas] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      // You can await here
+
+      const results = await axios.get(`${urlApi}/residentes`);
+      const casasRes = [];
+      let num = Object.values(results)[0].payload.length;
+      console.log("num", num);
+      const resultsC = Object.values(results)[0].payload;
+      setCasas(resultsC);
+
+      console.log("casas", casas);
+    }
+    fetchData();
+  }, []);
 
   const { handleSubmit, handleChange, values, errors, handleReset } = useFormik(
     {
@@ -78,17 +96,18 @@ export const PagoCrear = () => {
                       <option value="" label="Casa">
                         Casa{" "}
                       </option>
-                      <option value="1" label="1">
-                        {" "}
-                        red
-                      </option>
-                      <option value="2" label="2">
-                        blue
-                      </option>
-
-                      <option value="3" label="3">
-                        green
-                      </option>
+                      {casas.map((casa) => {
+                        return (
+                          <option
+                            key={casa.casa}
+                            value={casa.casa}
+                            label={casa.casa}
+                          >
+                            {" "}
+                            red
+                          </option>
+                        );
+                      })}
                     </select>
                   </td>
                 </tr>
