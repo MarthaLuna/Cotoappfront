@@ -21,16 +21,7 @@ const ControlGastos = () => {
       setControlGastos(data.payload);
     }
   }, [data]);
-  /* const onDelete = (id) => {
-    setControlGastos((currentDeleteGastos) => {
-      const foundGastosIndex = currentDeleteGastos.findIndex(gasto => gasto.id === id)
-      if (foundGastosIndex !== -1) {
-        const newGastos = [...currentDeleteGastos]
-        newGastos.splice(foundGastosIndex, 1)
-        return newGastos
-      }
-    })
-  } */
+
 
   return (
     <>
