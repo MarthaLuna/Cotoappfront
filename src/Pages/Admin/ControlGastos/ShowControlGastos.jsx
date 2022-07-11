@@ -17,6 +17,7 @@ export const ShowControlGastos = ({
   comprobante,
   descripcion,
   imagen_mejora,
+  props,
 }) => {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
@@ -24,22 +25,22 @@ export const ShowControlGastos = ({
     if (!_id) return;
     const termUrl = encodeURIComponent(_id.trim());
 
-    const termUrl2 = encodeURIComponent(Object.values({ concepto })[0]);
-
+    /*     const termUrl2 = encodeURIComponent(Object.values({ concepto })[0]);
+     */
     const result = await axios.delete(`${urlApi}/gastos/${termUrl}`);
-
-    navigate(`/GastosActualizarPage?name=${termUrl2}`);
+    window.location.reload();
+    /*  props.onDelete(_id); */
   };
-  const [openModal, setOpenModal] = useState(false);
+
 
   return (
     <>
-      <div className="w-100 d-none d-md-inline">
+      <div className="  d-table table-responsive" id="tabla-reporte mx-4">
 
 
-        <table id="tabla-reporte" className="table bg-white ">
+        <table id="tabla-reporte" className="table bg-white rounded mx-3 table align-middle table-sm">
           <thead  >
-            <tr>
+            <tr className="vertical-align:middle">
               <th scope="col" className="text-center">Concepto</th>
               <th scope="col">Mes</th>
               <th scope="col">Monto</th>
@@ -47,7 +48,7 @@ export const ShowControlGastos = ({
             </tr>
           </thead>
           <tbody>
-            <tr >
+            <tr className="vertical-align:middle">
               <th scope="row" className="text-center">{concepto}</th>
               <td>{moment(fecha_gasto).format('LL')}</td>
               <td>{monto}</td>
@@ -61,69 +62,58 @@ export const ShowControlGastos = ({
                 </span>
               </td>
               <td>
-                <h3 className="m-0 p-0">
-                  <Link to={`/dashboard/admin/GastosActualizarPage?id=${_id}`}>
-                    <i className="me-3 bi bi-pencil-fill" id="editar"></i>
-                  </Link>
-                </h3>
+                <Link to={`/dashboard/admin/GastosActualizarPage?id=${_id}`}>
+                  <i className=" bi bi-pencil-fill" id="editar"></i>
+                </Link>
               </td>
 
-              <h3 className="m-0 p-0">
 
 
-                <div
-                  class="modal fade"
-                  id="deleteModal"
-                  tabindex="-1"
-                  aria-labelledby="exampleModalLabel"
-                  aria-hidden="true"
-                >
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">
-                          <span> Eliminar </span>
-                        </h5>
+              <div
+                class="modal fade"
+                id="deleteModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                    </div>
+                    <div class="modal-body">
+                      ¿Seguro que deseas eliminar el residente selecionado?
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Cancelar
+                      </button>
+                      <form onSubmit={handleSubmit} id="deleteForm">
                         <button
-                          type="button"
-                          class="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div class="modal-body">
-                        ¿Seguro que deseas eliminar el residente selecionado?
-                      </div>
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-secondary"
+
+                          data-bs-id={`dashboard/admin/GastosActualizarPage?id=${_id}`}
+                          type="submit"
+                          class="btn btn-danger"
                           data-bs-dismiss="modal"
                         >
-                          Cerrar
+                          Eliminar
                         </button>
-                        <form onSubmit={handleSubmit} id="deleteForm">
-                          <button
-                            data-bs-id={_id}
-                            type="submit"
-                            class="btn btn-danger"
-                            data-bs-dismiss="modal"
-                          >
-                            Eliminar
-                          </button>
-                        </form>
-                      </div>
+                      </form>
                     </div>
                   </div>
                 </div>
-                <a data-bs-toggle="modal" data-bs-target="#deleteModal" href="#">
-                  <i
-                    className="bi bi-trash-fill openModalBtn"
-                    id="borrar"
-                    style={{ cursor: "pointer", padding: "20px" }}
-                  ></i>
-                </a>
-              </h3>
+              </div>
+              <a data-bs-toggle="modal" data-bs-target="#deleteModal" href="#">
+                <i
+                  className="bi bi-trash-fill openModalBtn "
+                  id="borrar"
+
+                ></i>
+              </a>
+
             </tr>
           </tbody>
         </table>

@@ -7,6 +7,7 @@ import { NavAdmin } from "../../../Components/NavAdmin";
 import { Footer } from "../../../Components/Home/Footer";
 import moment from "moment";
 import 'moment/locale/es';
+import './GastosCrear.scss'
 
 const GastosCrear = () => {
     const navigate = useNavigate();
@@ -52,9 +53,9 @@ const GastosCrear = () => {
     return (
         <>
             <NavAdmin />
-            <div className="ResidenteCMain">
-                <div className="ResidenteCContainer">
-                    <div className="ResidenteCContent">
+            <div className="ResidenteCMain ">
+                <div className="ResidenteCContainer d-flex justify-content-center">
+                    <div className="ResidenteCContent w-50 m-3">
                         <form
                             onSubmit={handleSubmit}
                             onReset={handleReset}
@@ -62,6 +63,7 @@ const GastosCrear = () => {
                                 display: "flex",
                                 flexDirection: "column",
                                 alignItems: "center",
+                                padding: "20px",
                             }}
                         >
                             <table>
@@ -123,18 +125,18 @@ const GastosCrear = () => {
                                 </tbody>
                             </table>
 
-                            <div className="botones_f">
-                                <button id="button_limpiar" type="reset">
-                                    Limpiar
-                                </button>
-
-                                <button id="button_enviar" type="submit"
-                                    onClick={() => setTimeout(() => { navigate('../controlGastos') }, 1000)}>
-                                    Registrar
-                                </button>
-                            </div>
                             <div id="source"></div>
                         </form>
+                        <div className="d-flex justify-content-evenly">
+                            <button id="clean" type="button" className="pr-3">
+                                Limpiar
+                            </button>
+
+                            <button id="register" type="button " className="pr-3"
+                                onClick={() => setTimeout(() => { navigate('../controlGastos') }, 1000)}>
+                                Registrar
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

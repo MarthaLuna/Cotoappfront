@@ -1,43 +1,41 @@
 @use "../../colors";
 @import "~bootstrap/scss/bootstrap";
-
-.residenteCrearCont{
+.residenteCrearCont {
     background-color: #747E7E;
     height: 100%;
 }
 
-.residenteCrearContent{
-
+.residenteCrearContent {
     background-color: #747E7E;
     height: 100%;
 }
 
-.residenteCrearConteiner{
+.residenteCrearConteiner {
     background-color: #747E7E;
     height: 100%;
 }
 
-body{
-    background:colors.$grey;
+body {
+    background: colors.$grey;
 }
 
-.Body-Content,.Body{
-    height:100vh;
+.Body-Content,
+.Body {
+    height: 100vh;
 }
 
-.btn-residente{
+.btn-residente {
     background-color: #FF5F5D;
 }
 
 .ResidenteCContainer {
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     margin-left: 100px;
     width: 100%;
-    
 }
 
-.field{
+.field {
     display: flex;
     justify-content: left;
 }
@@ -53,22 +51,20 @@ body{
     padding-bottom: 100px;
 }
 
-input{
+input {
     border-top: 0;
     border-left: 0;
     border-right: 0;
     border-bottom: 5px, solid, black;
-    }
+}
 
 span {
     color: #3F7C85;
     font-weight: bolder;
     margin-top: 50px;
-  
 }
 
-#button_limpiar{
-
+#button_limpiar {
     background-color: #3F7C85;
     border-radius: 10px;
     color: white;
@@ -76,11 +72,9 @@ span {
     font-weight: bolder;
     margin-top: 50px;
     width: 80px;
-    
 }
 
-#button_cancelar{
-
+#button_cancelar {
     background-color: #747E7E;
     border-radius: 10px;
     color: white;
@@ -88,11 +82,9 @@ span {
     font-weight: bolder;
     margin-top: 50px;
     width: 80px;
-    
 }
 
-#button_enviar{
-
+#button_enviar {
     background-color: #FF5F5D;
     border-radius: 10px;
     color: white;
@@ -100,15 +92,14 @@ span {
     font-weight: bolder;
     margin-top: 50px;
     width: 80px;
-    
 }
 
-.botones_f{
+.botones_f {
     display: flex;
 }
 
 @media (max-width: 600px) {
     .LoginContent {
-      width: 70%;
+        width: 70%;
     }
-  }
+}

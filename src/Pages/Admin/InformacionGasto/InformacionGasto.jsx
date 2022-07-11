@@ -10,7 +10,7 @@ import axios from "axios";
 import { ShowInformationRequest } from './Services/ShowInformationRequest'
 import { useFormik } from "formik";
 import { useLocation } from "react-router-dom";
-
+import './InformacionGasto.scss'
 function InformacionGasto() {
     const navigate = useNavigate();
     const location = useLocation();
@@ -44,9 +44,9 @@ function InformacionGasto() {
     }, []);
 
     return (
-        <div className="ResidenteCMain">
-            <div className="ResidenteCContainer">
-                <div className="ResidenteCContent">
+        <div className="ResidenteCMain ">
+            <div className="ResidenteCContainer d-flex justify-content-center">
+                <div className="ResidenteCContent w-50 m-3">
                     <form
 
                         style={{
@@ -112,9 +112,12 @@ function InformacionGasto() {
 
                         <div id="source"></div>
                     </form>
-                    <Link to='../controlGastos'>
-                        <button id="button_enviar">regresar</button>
-                    </Link>
+                    <div className='returnDiv'>
+
+                        <Link to='../controlGastos'>
+                            <button id="returnBack">regresar</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
