@@ -24,7 +24,9 @@ const ControlGastos = () => {
 
 
   return (
-    <>
+    <div style={{
+      backgroundColor: "#747e7e"
+    }}>
       <NavAdmin />
       <div className="w-100 d-none d-md-inline m-5" >
         <div className="d-flex justify-content-between mx-5">
@@ -53,7 +55,7 @@ const ControlGastos = () => {
         </div>
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

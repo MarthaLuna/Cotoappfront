@@ -51,97 +51,98 @@ const GastosCrear = () => {
         }
     }, [data]);
     return (
-        <>
+        < div style={{ backgroundColor: '#747e7e' }}>
             <NavAdmin />
-            <div className="ResidenteCMain ">
-                <div className="ResidenteCContainer d-flex justify-content-center">
-                    <div className="ResidenteCContent w-50 m-3">
-                        <form
-                            onSubmit={handleSubmit}
-                            onReset={handleReset}
-                            style={{
-                                display: "flex",
-                                flexDirection: "column",
-                                alignItems: "center",
-                                padding: "20px",
-                            }}
-                        >
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <span>Concepto: </span>
-                                        </td>
-                                        <td>
-                                            {" "}
-                                            <input
-                                                type="concepto"
-                                                value={values.concepto}
-                                                onChange={handleChange}
-                                                name="concepto"
-                                            ></input>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span>Monto: </span>
-                                        </td>
-                                        <td>
-                                            <input
-                                                type="monto"
-                                                value={values.monto}
-                                                onChange={handleChange}
-                                                name="monto"
-                                            ></input>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span>Fecha de Gasto: </span>
-                                        </td>
-                                        <td>
-                                            <input
-                                                type="fecha_gasto"
-                                                value={values.fecha_gasto}
-                                                onChange={handleChange}
-                                                name="fecha_gasto"
-                                            ></input>
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span>Comprobante del Gasto: </span>
-                                        </td>
-                                        <td>
-                                            <input
-                                                type="comprobante"
-                                                value={values.comprobante}
-                                                onChange={handleChange}
-                                                name="comprobante"
-                                            ></input>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+            <div className="ResidenteCContainer d-flex justify-content-center">
+                <div className="ResidenteCContent w-50 m-3">
+                    <form
+                        onSubmit={handleSubmit}
+                        onReset={handleReset}
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            padding: "20px",
+                        }}
+                    >
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span>Concepto: </span>
+                                    </td>
+                                    <td>
+                                        {" "}
+                                        <input
+                                            type="concepto"
+                                            value={values.concepto}
+                                            onChange={handleChange}
+                                            name="concepto"
+                                        ></input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Monto: </span>
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="monto"
+                                            value={values.monto}
+                                            onChange={handleChange}
+                                            name="monto"
+                                        ></input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Fecha de Gasto: </span>
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="fecha_gasto"
+                                            value={values.fecha_gasto}
+                                            onChange={handleChange}
+                                            name="fecha_gasto"
+                                        ></input>
 
-                            <div id="source"></div>
-                        </form>
-                        <div className="d-flex justify-content-evenly">
-                            <button id="clean" type="button" className="pr-3">
-                                Limpiar
-                            </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span>Comprobante del Gasto: </span>
+                                    </td>
+                                    <td>
+                                        <input
+                                            type="comprobante"
+                                            value={values.comprobante}
+                                            onChange={handleChange}
+                                            name="comprobante"
+                                        ></input>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                            <button id="register" type="button " className="pr-3"
-                                onClick={() => setTimeout(() => { navigate('../controlGastos') }, 1000)}>
-                                Registrar
-                            </button>
-                        </div>
+                        <div id="source"></div>
+                    </form>
+                    <div className="d-flex justify-content-evenly mt-4">
+                        <button id="clean" type="button" className="pr-3">
+                            Limpiar
+                        </button>
+
+                        <button id="register" type="button " className="pr-3"
+                            onClick={() => setTimeout(() => { navigate('../controlGastos') }, 1000)}>
+                            Registrar
+                        </button>
                     </div>
                 </div>
             </div>
+
+
             <Footer />
-        </>
+        </div>
     )
 }
 

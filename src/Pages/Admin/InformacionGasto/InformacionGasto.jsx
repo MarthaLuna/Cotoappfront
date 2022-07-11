@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useHttp } from '../../../Hooks/useHttp'
 import { NavAdmin } from '../../../Components/NavAdmin/NavAdmin'
 import { Footer } from '../../../Components/Home/Footer/Footer'
-import { ShowInformationGastos } from './ShowInformationGastos'
 import queryString from "query-string";
 import axios from "axios";
 import { ShowInformationRequest } from './Services/ShowInformationRequest'
@@ -44,7 +43,12 @@ function InformacionGasto() {
     }, []);
 
     return (
-        <div className="ResidenteCMain ">
+
+
+        <div style={{
+            backgroundColor: "#747e7e"
+        }}>
+            <NavAdmin />
             <div className="ResidenteCContainer d-flex justify-content-center">
                 <div className="ResidenteCContent w-50 m-3">
                     <form
@@ -120,6 +124,7 @@ function InformacionGasto() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
 
     )
