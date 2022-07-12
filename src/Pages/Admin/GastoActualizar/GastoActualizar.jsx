@@ -145,19 +145,19 @@ const GastoActualizar = () => {
                                 </tr>
                             </tbody>
                         </table>
+                        <div className="botones_f " >
+                            <button id="button_limpiar" type="reset" >
+                                Limpiar
+                            </button>
+
+                            <button id="button_enviar" type="submit"
+                                onClick={() => setTimeout(() => { navigate('../controlGastos') }, 1000)}>
+
+                                Actualizar
+                            </button>
+                        </div>
                         <div id="source"></div>
                     </form>
-                    <div className="d-flex justify-content-evenly mt-4">
-                        <button id="clean" type="button" className="pr-3">
-                            Limpiar
-                        </button>
-
-                        <button id="register" type="button" className="pr-3"
-                            onClick={() => setTimeout(() => { navigate('../controlGastos') }, 1000)}>
-
-                            Actualizar
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>

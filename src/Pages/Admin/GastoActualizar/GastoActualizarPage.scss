@@ -1,13 +1,14 @@
-#clean {
+#button_limpiar {
     background-color: rgb(92, 95, 95);
     color: white;
     border-radius: 15px;
     border: none;
 }
 
-#register {
+#button_enviar {
     background-color: salmon;
     color: white;
     border-radius: 15px;
     border: none;
+    width: fit-content;
 }
