@@ -10,6 +10,9 @@ import { ShowInformationRequest } from './Services/ShowInformationRequest'
 import { useFormik } from "formik";
 import { useLocation } from "react-router-dom";
 import './InformacionGasto.scss'
+import moment from 'moment';
+import 'moment/locale/es'
+
 function InformacionGasto() {
     const navigate = useNavigate();
     const location = useLocation();
@@ -68,11 +71,9 @@ function InformacionGasto() {
                                     </td>
                                     <td>
                                         {" "}
-                                        <input
-                                            type="concepto"
-                                            value={values.concepto}
-                                            name="concepto"
-                                        ></input>
+                                        <span>
+                                            {values.concepto}
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -80,11 +81,9 @@ function InformacionGasto() {
                                         <span>Monto: </span>
                                     </td>
                                     <td>
-                                        <input
-                                            type="monto"
-                                            value={values.monto}
-                                            name="monto"
-                                        ></input>
+                                        <span>
+                                            {values.monto}
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -92,11 +91,9 @@ function InformacionGasto() {
                                         <span>Fecha de gasto: </span>
                                     </td>
                                     <td>
-                                        <input
-                                            type="fecha_gasto"
-                                            value={values.fecha_gasto}
-                                            name="fecha_gasto"
-                                        ></input>
+                                        <span>
+                                            {moment(values.fecha_gasto).format("LL")}
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -104,12 +101,9 @@ function InformacionGasto() {
                                         <span>Comprobante: </span>
                                     </td>
                                     <td>
-                                        <input
-                                            type="comprobante"
-                                            value={values.comprobante}
-                                            name="comprobante"
-                                        ></input>
-                                    </td>
+                                        <span>
+                                            {values.comprobante}
+                                        </span>                                    </td>
                                 </tr>
                             </tbody>
                         </table>
