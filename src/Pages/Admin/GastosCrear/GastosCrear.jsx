@@ -5,14 +5,16 @@ import { useHttp } from "../../../Hooks/useHttp";
 import { CrearGastosServiceRequest } from "./Services/CrearGastoService";
 import { NavAdmin } from "../../../Components/NavAdmin";
 import { Footer } from "../../../Components/Home/Footer";
+import { useLocation } from "react-router-dom";
+import queryString from "query-string";
+import axios from "axios";
 import moment from "moment";
 import 'moment/locale/es';
 import './GastosCrear.scss'
 
 const GastosCrear = () => {
     const navigate = useNavigate();
-
-    const { handleSubmit, handleChange, values, errors, handleReset } = useFormik(
+    const { handleSubmit, handleChange, values, handleReset } = useFormik(
         {
             initialValues: {
                 concepto: "",
@@ -38,7 +40,7 @@ const GastosCrear = () => {
 
     useEffect(() => {
         if (data.success) {
-            navigate("./");
+            navigate(".");
             const source = document.getElementById("source");
             source.innerText = "Gasto agregado exitosamente";
         } else if (data.success == false) {
@@ -50,6 +52,7 @@ const GastosCrear = () => {
             source.innerText = "";
         }
     }, [data]);
+
     return (
         < div style={{ backgroundColor: '#747e7e' }}>
             <NavAdmin />
@@ -125,22 +128,20 @@ const GastosCrear = () => {
                             </tbody>
                         </table>
 
+                        <div className="botones_f">
+                            <button id="button_limpiar" type="reset">
+                                Limpiar
+                            </button>
+
+                            <button id="button_enviar" type="submit"
+                                onClick={() => setTimeout(() => { navigate('../controlGastos') }, 1000)}>
+                                Crear
+                            </button>
+                        </div>
                         <div id="source"></div>
                     </form>
-                    <div className="d-flex justify-content-evenly mt-4">
-                        <button id="clean" type="button" className="pr-3">
-                            Limpiar
-                        </button>
-
-                        <button id="register" type="button " className="pr-3"
-                            onClick={() => setTimeout(() => { navigate('../controlGastos') }, 1000)}>
-                            Registrar
-                        </button>
-                    </div>
                 </div>
             </div>
-
-
             <Footer />
         </div>
     )
