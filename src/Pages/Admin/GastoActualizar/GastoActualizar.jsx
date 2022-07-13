@@ -78,7 +78,7 @@ const GastoActualizar = () => {
     return (
         <div className="ResidenteCMain ">
             <div className="ResidenteCContainer d-flex justify-content-center">
-                <div className="ResidenteCContent w-50 m-3">
+                <div className="ResidenteCContent w-50 m-5">
                     <form
                         onSubmit={handleSubmit}
                         onReset={handleReset}
@@ -145,7 +145,7 @@ const GastoActualizar = () => {
                                 </tr>
                             </tbody>
                         </table>
-                        <div className="botones_f " >
+                        <div className="botones_f "  >
                             <button id="button_limpiar" type="reset" >
                                 Limpiar
                             </button>
@@ -159,8 +159,8 @@ const GastoActualizar = () => {
                         <div id="source"></div>
                     </form>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 

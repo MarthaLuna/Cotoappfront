@@ -53,7 +53,7 @@ function InformacionGasto() {
         }}>
             <NavAdmin />
             <div className="ResidenteCContainer d-flex justify-content-center">
-                <div className="ResidenteCContent w-50 m-3">
+                <div className="ResidenteCContent w-50 m-5">
                     <form
 
                         style={{
@@ -61,6 +61,7 @@ function InformacionGasto() {
                             flexDirection: "row",
                             alignItems: "center",
                             justifyContent: "center",
+                            padding: "20px",
                         }}
                     >
                         <table>

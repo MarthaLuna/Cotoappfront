@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Dropdown from "react-bootstrap/Dropdown";
-import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -15,21 +13,14 @@ export const ShowControlGastos = ({
   monto,
   fecha_gasto,
   comprobante,
-  descripcion,
-  imagen_mejora,
-  props,
 }) => {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!_id) return;
     const termUrl = encodeURIComponent(_id.trim());
-
-    /*     const termUrl2 = encodeURIComponent(Object.values({ concepto })[0]);
-     */
     const result = await axios.delete(`${urlApi}/gastos/${termUrl}`);
     window.location.reload();
-    /*  props.onDelete(_id); */
   };
 
 

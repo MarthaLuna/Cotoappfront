@@ -58,7 +58,8 @@ const GastosCrear = () => {
             <NavAdmin />
 
             <div className="ResidenteCContainer d-flex justify-content-center">
-                <div className="ResidenteCContent w-50 m-3">
+                <div className="ResidenteCContent w-50 m-5">
+
                     <form
                         onSubmit={handleSubmit}
                         onReset={handleReset}
@@ -67,12 +68,13 @@ const GastosCrear = () => {
                             flexDirection: "column",
                             alignItems: "center",
                             padding: "20px",
+
                         }}
                     >
                         <table>
                             <tbody>
                                 <tr>
-                                    <td>
+                                    <td >
                                         <span>Concepto: </span>
                                     </td>
                                     <td>
@@ -135,7 +137,7 @@ const GastosCrear = () => {
 
                             <button id="button_enviar" type="submit"
                                 onClick={() => setTimeout(() => { navigate('../controlGastos') }, 1000)}>
-                                Crear
+                                Registrar
                             </button>
                         </div>
                         <div id="source"></div>
