@@ -13,7 +13,7 @@ import 'moment/locale/es';
 import { useNavigate } from "react-router-dom";
 const urlApi = process.env.REACT_APP_URL_API;
 
-const ControlGastos = ({ _id, concepto, monto, fecha_gasto, comprobante }) => {
+const ControlGastos = ({ _id }) => {
   const [controlGastos, setControlGastos] = useState([]);
   const { loading, request, error, data } = useHttp(ServiceRequest);
   const navigate = useNavigate();
@@ -26,9 +26,13 @@ const ControlGastos = ({ _id, concepto, monto, fecha_gasto, comprobante }) => {
   };
 
 
+
   useEffect(() => {
-    request();
+    getGastos()
   }, []);
+  function getGastos() {
+    request();
+  }
 
   useEffect(() => {
     if (Object.keys(data).length != 0) {
@@ -36,8 +40,17 @@ const ControlGastos = ({ _id, concepto, monto, fecha_gasto, comprobante }) => {
     }
   }, [data]);
 
-  const deleteItems = (index) => {
-    setControlGastos((controlGastos) => controlGastos.filter((_, i) => i !== index))
+  const deleteItem = (_id) => {
+    fetch(`${urlApi}/gastos/${_id}`, {
+      method: "DELETE",
+    }).then((res) => {
+      res.json().then((data) => {
+        console.warn(data);
+        getGastos()
+      })
+    })
+
+    // setControlGastos((controlGastos) => controlGastos.filter((_, i) => i !== index))
   }
 
 
@@ -78,7 +91,7 @@ const ControlGastos = ({ _id, concepto, monto, fecha_gasto, comprobante }) => {
 
             </thead>
 
-            {controlGastos.map((controlGasto, index) => {
+            {controlGastos.map((controlGasto, _id) => {
               return (
 
 
@@ -99,7 +112,7 @@ const ControlGastos = ({ _id, concepto, monto, fecha_gasto, comprobante }) => {
 
                     </td>
                     <td>
-                      <button onSubmit={handleSubmit} onClick={() => deleteItems(index)}>     <i
+                      <button onClick={(e) => deleteItem(controlGasto._id)}>     <i
                         className="bi bi-trash-fill openModalBtn "
                         id="borrar"></i></button>
                     </td>
