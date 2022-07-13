@@ -69,6 +69,7 @@ const GastosCrear = () => {
                             alignItems: "center",
                             padding: "20px",
 
+
                         }}
                     >
                         <table>

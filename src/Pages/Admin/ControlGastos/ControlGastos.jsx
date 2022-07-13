@@ -10,17 +10,18 @@ import './ControlGastos.scss'
 import axios from "axios";
 import moment from "moment";
 import 'moment/locale/es';
-
+import { useNavigate } from "react-router-dom";
 const urlApi = process.env.REACT_APP_URL_API;
 
 const ControlGastos = ({ _id, concepto, monto, fecha_gasto, comprobante }) => {
   const [controlGastos, setControlGastos] = useState([]);
   const { loading, request, error, data } = useHttp(ServiceRequest);
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!_id) return;
     const termUrl = encodeURIComponent(_id.trim());
+    // navigate(`/dashboard/admin/informacion-gasto?id=${termUrl}`);
     const result = await axios.delete(`${urlApi}/gastos/${termUrl}`);
   };
 
@@ -89,10 +90,10 @@ const ControlGastos = ({ _id, concepto, monto, fecha_gasto, comprobante }) => {
                     <td>{controlGasto.comprobante}</td>
                     <td>
 
-                      <Link to={`/dashboard/admin/informacion-gasto?id=${_id}`}>Visualizar Gasto</Link>
+                      <Link to={`/dashboard/admin/informacion-gasto?id=${controlGasto._id}`}>Visualizar Gasto</Link>
                     </td>
                     <td>
-                      <Link to={`/dashboard/admin/GastosActualizarPage?id=${_id}`}>
+                      <Link to={`/dashboard/admin/GastosActualizarPage?id=${controlGasto._id}`}>
                         <i className=" bi bi-pencil-fill" id="editar"></i>
                       </Link>
 

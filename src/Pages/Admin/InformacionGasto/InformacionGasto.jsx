@@ -21,8 +21,9 @@ function InformacionGasto() {
     console.log(queryString.parse(location.search))
 
     const {
-        values,
         setFieldValue,
+        handleChange,
+        values,
     } = useFormik({
         initialValues: {
             concepto: "",
@@ -30,7 +31,21 @@ function InformacionGasto() {
             fecha_gasto: "",
             comprobante: "",
         },
+        onSubmit: () => request(),
+        onReset: () => {
+            const source = document.getElementById("source");
+            source.innerText = "";
+        },
     });
+
+    const { loading, request, error, data } = useHttp(ShowInformationRequest, {
+        concepto: values.concepto,
+        monto: values.monto,
+        fecha_gasto: values.fecha_gasto,
+        comprobante: values.comprobante,
+        id: id,
+    });
+
     useEffect(() => {
         async function fetchData() {
             // You can await here
