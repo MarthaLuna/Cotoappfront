@@ -3,7 +3,7 @@ import Navbar2 from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import "./NavAdmin.scss";
 import useUser from "../../Hooks/useUser";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export const NavAdmin = () => {
   const navigate = useNavigate();
@@ -26,9 +26,9 @@ export const NavAdmin = () => {
           ></img>
         </Navbar2.Brand>
         <div id="coto-name">
-          <a id="link_nav" href="/dashboard/admin/residentes">
+          <Link id="link_nav" to="/dashboard/admin/residentes">
             Residentes
-          </a>
+          </Link>
         </div>
         <div id="coto-name">
           <div class="dropdown">
@@ -47,21 +47,21 @@ export const NavAdmin = () => {
                 </a>
               </li>
               <li>
-                <a
+                <Link
                   class="dropdown-item"
                   type="button"
-                  href="/dashboard/admin/pagos"
+                  to="/dashboard/admin/pagos"
                 >
                   Control
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
         </div>
         <div id="coto-name">
-          <a id="link_nav" href="/dashboard/admin/controlGastos">
+          <Link id="link_nav" to="/dashboard/admin/controlGastos">
             Gastos
-          </a>
+          </Link>
         </div>
         <div id="coto-name">
           <a id="link_nav" href="/dashboard/admin/reportes">

@@ -82,7 +82,7 @@ function InformacionGasto() {
                         <table>
                             <tbody>
                                 <tr>
-                                    <td>
+                                    <td >
                                         <span>Concepto: </span>
                                     </td>
                                     <td>
