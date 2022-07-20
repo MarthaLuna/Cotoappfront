@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 import moment from "moment";
 import 'moment/locale/es';
 import './ControlGastos.scss'
+import Modal2 from "../ModalDeleteGasto/Modal2";
+
 
 export const ControlGastosTablePage = ({
   _id,
@@ -14,6 +16,13 @@ export const ControlGastosTablePage = ({
   comprobante,
 
 }) => {
+  const urlApi = process.env.REACT_APP_URL_API;
+  const [openModal, setOpenModal] = useState(false);
+  const deleteOperation = async (_id) => {
+    await axios.delete(`${urlApi}/gastos/${_id}`);
+    window.location.reload();
+  }
+
   return (
     <>
       <tr>
@@ -32,9 +41,11 @@ export const ControlGastosTablePage = ({
 
         </td>
         <td>
-          <button   >     <i
+          <button onClick={() => setOpenModal(true)} > <i
             className="bi bi-trash-fill "
             id="borrar"></i></button>
+          <Modal2 open={openModal} onClose={() => setOpenModal(false)} onFunction={() => deleteOperation(_id)} />
+
         </td>
       </tr>
     </>
