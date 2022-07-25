@@ -11,6 +11,23 @@ const urlApi = process.env.REACT_APP_URL_API;
 export const PagoCrear = () => {
   const navigate = useNavigate();
   const [casas, setCasas] = useState([]);
+  const [files, setFiles] = useState("");
+  const [formDatav, setFormData] = useState("");
+
+  const handleFile = (e) => {
+    // Getting the files from the input
+    let files = e.target.files;
+    console.log(files);
+    setFiles({ files });
+
+    let formData = new FormData();
+
+    //Adding files to the formdata
+    formData.append("image", files);
+    formData.append("name", "Name");
+    setFormData(formData);
+  };
+
   useEffect(() => {
     async function fetchData() {
       // You can await here
@@ -50,6 +67,7 @@ export const PagoCrear = () => {
     pago_id: values.concepto,
     comprobante: "comprobante",
     aprobado: true,
+    formDatav: formDatav,
   });
 
   useEffect(() => {
@@ -166,6 +184,7 @@ export const PagoCrear = () => {
                 </tr>
               </tbody>
             </table>
+            <input type="file" onChange={handleFile} />
             <input id="button_enviar" type="file" accept="image/*" />
             <div className="botones_f">
               <button id="button_limpiar" type="reset">

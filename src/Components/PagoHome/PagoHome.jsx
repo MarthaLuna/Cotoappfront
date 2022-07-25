@@ -10,11 +10,22 @@ export const PagoHome = () => {
 
   const handleChange = ({ target }) => setName(target.value);
 
-  const handleSubmit = (e) => {
+  const handleSubmitmes = (e) => {
     e.preventDefault();
-    if (!name) return;
-    const termUrl = encodeURIComponent(name.trim());
-    navigate(`/dashboard/admin/buscarPago?name=${termUrl}`);
+    const fecha = new Date("Jul 12 2011");
+    const mesActual = fecha.getMonth();
+
+    console.log("mesActual", mesActual);
+    navigate(`/dashboard/admin/buscarPago?mes=${mesActual}`);
+  };
+
+  const handleSubmitanio = (e) => {
+    e.preventDefault();
+    const fecha = new Date();
+    const añoActual = fecha.getFullYear();
+
+    console.log("añoActual", añoActual);
+    navigate(`/dashboard/admin/buscarPagoAnio?anio=${añoActual}`);
   };
 
   return (
@@ -22,24 +33,15 @@ export const PagoHome = () => {
       <div className="PagoHomeCont">
         <div className="PagoHomeContent d-flex justify-content-around">
           <div className="d-flex gap-6">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmitmes}>
               <button className="btn btn-outline-light btn-Pago">
                 Mes Actual
               </button>
-              <span>&nbsp;&nbsp;&nbsp;</span>
+            </form>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+            <form onSubmit={handleSubmitanio}>
               <button className="btn btn-outline-light btn-Pago">
                 Año Actual
-              </button>
-            </form>
-            <form onSubmit={handleSubmit}>
-              <input
-                type="search"
-                placeholder="Ingresa nombre..."
-                onChange={handleChange}
-              ></input>
-              <span>&nbsp;&nbsp;&nbsp;</span>
-              <button className="btn btn-outline-light btn-residente">
-                Buscar
               </button>
             </form>
           </div>

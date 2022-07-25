@@ -23,7 +23,7 @@ export const PagoBuscar = ({
 
     const result = await axios.delete(`${urlApi}/pagos/${termUrl}`);
 
-    navigate(`/dashboard/admin/buscarPago?name=${termUrl2}`);
+    navigate(`/dashboard/admin/buscarPago?mes=${termUrl2}`);
   };
 
   const monthNames = [

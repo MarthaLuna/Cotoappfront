@@ -45,6 +45,7 @@ export const ResidenteCrear = () => {
       navigate(".");
       const source = document.getElementById("source");
       source.innerText = "Residente creado exitosamente";
+      setTimeout(navigate("/dashboard/admin/residentes"), 30000);
     } else if (data.success == false) {
       navigate(".");
       const source = document.getElementById("source");

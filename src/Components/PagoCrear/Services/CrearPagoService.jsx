@@ -9,14 +9,24 @@ export const crearRRequest = async ({
   pago_id,
   comprobante,
   aprobado,
+  formDatav,
 }) => {
-  const result = await axios.post(`${urlApi}/pagos`, {
-    monto,
-    fecha_pago,
-    comprobante,
-    aprobado,
-    casa,
-    pago_id,
-  });
+  console.log("data", formDatav);
+  const result = await axios.post(
+    `${urlApi}/pagos`,
+    {
+      monto,
+      fecha_pago,
+      comprobante,
+      aprobado,
+      casa,
+      pago_id,
+      data: formDatav,
+    },
+    {
+      headers: formDatav.getHeaders(),
+    }
+  );
+
   return result.data;
 };

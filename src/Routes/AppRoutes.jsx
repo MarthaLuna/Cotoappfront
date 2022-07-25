@@ -12,7 +12,7 @@ import { Home } from "../Components/Home/Home";
 import { LoginPage } from "../Pages/Login/LoginPage";
 import { DashboardRoutes } from "./DashboardRoutes";
 import { UserContext } from "../context/UserContext";
-import { RegisterAdminsShowPage } from "../Pages/RegisterAdmins/RegisterAdminsShowPage";
+import { RegisterAdmins } from "../Pages/RegisterAdmins/RegisterAdmins";
 
 export const AppRoutes = () => {
   const [check, setCheck] = useState(true);
@@ -93,6 +93,7 @@ export const AppRoutes = () => {
         />
 
         <Route path="/" element={<Home />} />
+        <Route path="/adminRegister" element={<RegisterAdmins />} />
       </Routes>
     </BrowserRouter>
   );

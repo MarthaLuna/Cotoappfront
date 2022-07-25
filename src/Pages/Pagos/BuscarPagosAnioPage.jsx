@@ -8,22 +8,22 @@ import { Footer } from "../../Components/Home/Footer";
 import { PagoBuscar } from "../../Components/PagoBuscar";
 import { useEffect, useState } from "react";
 import { useHttp } from "../../Hooks/useHttp";
-import { pagosBuscarRequest } from "./Services/Buscar";
+import { pagosBuscarAnioRequest } from "./Services/Buscar";
 import "./Pagos.scss";
 
-export const BuscarPagosPage = () => {
+export const BuscarPagosAnioPage = () => {
   const location = useLocation();
-  const { mes } = queryString.parse(location.search);
+  const { anio } = queryString.parse(location.search);
   console.log(location.search);
   const [pagos, setPagos] = useState([]);
 
-  const { loading, request, error, data } = useHttp(pagosBuscarRequest, {
-    mes: mes,
+  const { loading, request, error, data } = useHttp(pagosBuscarAnioRequest, {
+    anio: anio,
   });
 
   useEffect(() => {
     request();
-  }, [mes]);
+  }, [anio]);
 
   useEffect(() => {
     if (Object.keys(data).length != 0) {

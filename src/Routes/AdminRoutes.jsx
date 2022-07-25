@@ -11,6 +11,7 @@ import GastosActualizarPage from "../Pages/Admin/GastoActualizar/GastosActualiza
 
 import { PagosPage } from "../Pages/Pagos/PagosPage";
 import { BuscarPagosPage } from "../Pages/Pagos/BuscarPagosPage";
+import { BuscarPagosAnioPage } from "../Pages/Pagos/BuscarPagosAnioPage";
 import { CreatePagosPage } from "../Pages/Pagos/CreatePagosPage";
 import { UpdatePagosPage } from "../Pages/Pagos/UpdatePagosPage";
 
@@ -30,6 +31,7 @@ export const AdminRoutes = () => {
 
       <Route path="/pagos" element={<PagosPage />} />
       <Route path="/buscarPago" element={<BuscarPagosPage />} />
+      <Route path="/buscarPagoAnio" element={<BuscarPagosAnioPage />} />
       <Route path="/crearPagos" element={<CreatePagosPage />} />
       <Route path="/actualizarPago" element={<UpdatePagosPage />} />
 
