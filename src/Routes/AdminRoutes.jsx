@@ -5,7 +5,6 @@ import { AdminHome } from "../Pages/Admin/AdminHome/AdminHome";
 import { GastosPage } from "../Pages/Admin/GastosPage/GastosPage";
 import ControlGastos from "../Pages/Admin/ControlGastos/ControlGastos";
 import InformacionGasto from "../Pages/Admin/InformacionGasto/InformacionGasto";
-import EditarGasto from "../Pages/Admin/EditarGasto/EditarGasto";
 import GastosCrear from "../Pages/Admin/GastosCrear/GastosCrear";
 import GastosActualizarPage from "../Pages/Admin/GastoActualizar/GastosActualizarPage";
 

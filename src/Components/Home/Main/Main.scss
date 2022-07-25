@@ -1,15 +1,15 @@
 @use "../../../colors";
 @import "~bootstrap/scss/bootstrap";
-
-body{
-    background:colors.$grey;
+body {
+    background: colors.$grey;
 }
 
-.Body-Content,.Body{
-    height:80vh;
+.Body-Content,
+.Body {
+    height: 80vh;
 }
 
-p{
-    color:colors.$white;
+p {
+    color: colors.$white;
     text-align: justify;
 }

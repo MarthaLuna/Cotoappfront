@@ -1,0 +1,18 @@
+@use "../../../colors.scss";
+body {
+    background: #747E7E;
+}
+
+#clean {
+    background-color: rgb(92, 95, 95);
+    color: white;
+    border-radius: 15px;
+    border: none;
+}
+
+#register {
+    background-color: salmon;
+    color: white;
+    border-radius: 15px;
+    border: none;
+}

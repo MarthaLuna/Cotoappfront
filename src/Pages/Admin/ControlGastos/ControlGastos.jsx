@@ -3,18 +3,15 @@ import { NavAdmin } from "../../../Components/NavAdmin";
 import { Footer } from "../../../Components/Home/Footer";
 import { useHttp } from "../../../Hooks/useHttp";
 import { ServiceRequest } from "../Services/ServiceRequest";
-import { ShowControlGastos } from "./ShowControlGastos";
+import { GastosRowItem } from "./GastosRowItem";
 import { Link } from "react-router-dom";
-import Dropdown from "react-bootstrap/Dropdown";
-import './ControlGastos.scss'
+// import './ControlGastos.scss'
 
 const ControlGastos = () => {
   const [controlGastos, setControlGastos] = useState([]);
-
   const { loading, request, error, data } = useHttp(ServiceRequest);
-
   useEffect(() => {
-    request();
+    request()
   }, []);
 
   useEffect(() => {
@@ -24,60 +21,57 @@ const ControlGastos = () => {
   }, [data]);
 
   return (
-    <>
+    <div style={{
+      backgroundColor: "#747e7e"
+    }}>
       <NavAdmin />
-      <div className="w-100 d-none d-md-inline">
-        <Link to="/dashboard/admin/GastosCrear">
-          <button type="button" className="red-button ">
-            Registrar Gasto
-            <i className="ms-2 bi bi-plus-circle"></i>
-          </button>
-        </Link>
-        <div className="d-flex justify-content-between p-2 ">
+      <div className="w-100 d-none d-md-inline m-5" >
+        <div className="d-flex justify-content-between mx-5">
           <div className="d-flex justify-content-between">
             <button type="button" className="red-button">
-              Mes Actual
-            </button>
-            <button type="button" className="red-button">
-              Año Actual
+              Año
             </button>
           </div>
 
-          <div className="d-flex  ">
-            <Dropdown>
-              <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                Mes del Año Actual
-              </Dropdown.Toggle>
+          <Link to="/dashboard/admin/GastosCrear">
+            <button type="button" className="red-button ">
+              Registrar Gasto
+              <i className="ms-2 bi bi-plus-circle"></i>
+            </button>
+          </Link>
 
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-
-            <Dropdown>
-              <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                Año
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </div>
         </div>
 
-        <div style={{ padding: "40px" }} >
-          {controlGastos.map((controlGasto) => (
-            <ShowControlGastos key={controlGasto._id} {...controlGasto} />
-          ))}
+
+        <div style={{ padding: "40px", margin: "5px 50px 5px 50px" }}  >
+          <table className="table bg-white rounded mx-3 table align-middle table-sm table-hover">
+            <thead >
+              <tr>
+                <th scope="col">Concepto</th>
+                <th scope="col">Monto</th>
+                <th scope="col">Fecha de Pago</th>
+                <th scope="col">Comprobante</th>
+                <th scope="col">Acciones</th>
+              </tr>
+
+            </thead>
+            <tbody className="table bg-white rounded mx-3 table align-middle table-sm table-hover" >
+              {controlGastos.map((controlGasto, _id) => {
+                return (
+                  <GastosRowItem key={controlGasto._id} setControlGastos={setControlGastos} {...controlGasto} />
+                )
+              })}
+            </tbody>
+          </table>
         </div>
+
+        <div>
+
+        </div>
+
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -12,8 +12,8 @@ import '../../../Components/ResidenteActualizar/ResidenteActualizar.scss'
 
 const GastoActualizar = () => {
     const navigate = useNavigate();
-    const location = useLocation();
     const urlApi = process.env.REACT_APP_URL_API;
+    const location = useLocation();
     const { id } = queryString.parse(location.search);
     console.log(queryString.parse(location.search))
 
@@ -76,9 +76,9 @@ const GastoActualizar = () => {
     }, []);
 
     return (
-        <div className="ResidenteCMain">
-            <div className="ResidenteCContainer">
-                <div className="ResidenteCContent">
+        <div className="ResidenteCMain ">
+            <div className="ResidenteCContainer d-flex justify-content-center">
+                <div className="ResidenteCContent w-50 m-5">
                     <form
                         onSubmit={handleSubmit}
                         onReset={handleReset}
@@ -145,8 +145,8 @@ const GastoActualizar = () => {
                                 </tr>
                             </tbody>
                         </table>
-                        <div className="botones_f">
-                            <button id="button_limpiar" type="reset">
+                        <div className="botones_f "  >
+                            <button id="button_limpiar" type="reset" >
                                 Limpiar
                             </button>
 
@@ -159,8 +159,8 @@ const GastoActualizar = () => {
                         <div id="source"></div>
                     </form>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 
