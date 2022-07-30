@@ -11,7 +11,7 @@ export const PagoBuscar = ({
   fecha_pago,
   monto,
   comprobante,
-  nombre,
+  aprobado,
 }) => {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
@@ -19,11 +19,20 @@ export const PagoBuscar = ({
     if (!_id) return;
     const termUrl = encodeURIComponent(_id.trim());
 
-    const termUrl2 = encodeURIComponent(Object.values({ nombre })[0]);
+    const termUrl2 = new Date(fecha_pago).getMonth;
 
     const result = await axios.delete(`${urlApi}/pagos/${termUrl}`);
 
-    navigate(`/dashboard/admin/buscarPago?mes=${termUrl2}`);
+    navigate(`/dashboard/admin/buscarPago?mes=6`);
+  };
+
+  const seeImage = () => {
+    console.log(comprobante);
+
+    const img = document.createElement("img");
+    img.src = comprobante;
+
+    document.body.appendChild(img);
   };
 
   const monthNames = [
@@ -96,7 +105,9 @@ export const PagoBuscar = ({
         <td>{getLongMonthName(new Date(fecha_pago))}</td>
         <td>{monto}</td>
         <td>
-          <a href="#">Ver pago</a>
+          <a href="#" onClick={seeImage}>
+            Ver pago
+          </a>
         </td>
         <td>
           <a data-bs-toggle="modal" data-bs-target="#deleteModal" href="#">

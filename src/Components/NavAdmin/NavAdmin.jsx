@@ -20,7 +20,7 @@ export const NavAdmin = () => {
       <Container className="d-flex justify-content-around">
         <Navbar2.Brand className="me-0" id="navbar-cotoApp-name" href="/">
           <img
-            src={require("../../images/logo.jpg")}
+            src={require("../../images/Logotipo CotoApp color.png")}
             alt="logo"
             width="50px"
           ></img>

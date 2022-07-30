@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./ResidenteHome.scss";
-import useUser from "../../Hooks/useUser";
 
 export const ResidenteHome = () => {
   const navigate = useNavigate();
@@ -30,13 +29,14 @@ export const ResidenteHome = () => {
                 onChange={handleChange}
               ></input>
               <span>&nbsp;&nbsp;&nbsp;</span>
-              <button className="btn btn-outline-light btn-residente">
+              <button className="btn btn-outline-light" id="btn-residente">
                 Buscar
               </button>
             </form>
           </div>
           <a
-            className="btn btn-outline-light btn-residente"
+            className="btn btn-outline-light"
+            id="btn-residente"
             href="/dashboard/admin/crearResidente"
           >
             Crear Residente

@@ -7,7 +7,7 @@ import { ResidenteCrear } from "../../../Components/ResidenteCrear/ResidenteCrea
 
 export const CreateResidentesPage = () => {
   return (
-    <div id="Home-Container">
+    <div className="bckGP">
       <NavAdmin />
       <ResidenteCrear />
       <Footer />

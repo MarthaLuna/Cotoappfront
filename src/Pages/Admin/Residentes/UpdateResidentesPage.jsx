@@ -7,7 +7,7 @@ import { ResidenteActualizar } from "../../../Components/ResidenteActualizar/Res
 
 export const UpdateResidentesPage = () => {
   return (
-    <div id="Home-Container">
+    <div className="bckGP">
       <NavAdmin />
       <ResidenteActualizar />
       <Footer />

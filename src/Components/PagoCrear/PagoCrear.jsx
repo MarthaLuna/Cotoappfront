@@ -6,26 +6,33 @@ import { crearRRequest } from "./Services/CrearPagoService";
 import axios from "axios";
 import "./PagoCrear.scss";
 
+window.Buffer = window.Buffer || require("buffer").Buffer;
+
 const urlApi = process.env.REACT_APP_URL_API;
 
 export const PagoCrear = () => {
   const navigate = useNavigate();
   const [casas, setCasas] = useState([]);
-  const [files, setFiles] = useState("");
-  const [formDatav, setFormData] = useState("");
-
-  const handleFile = (e) => {
+  const [comprobante, setComprobante] = useState("");
+  const handleFile = async (e) => {
     // Getting the files from the input
-    let files = e.target.files;
-    console.log(files);
-    setFiles({ files });
+    let file = e.target.files[0];
 
-    let formData = new FormData();
-
-    //Adding files to the formdata
-    formData.append("image", files);
-    formData.append("name", "Name");
-    setFormData(formData);
+    //Get secure url from our server
+    const url = await axios.get(`${urlApi}/s3/s3Url`);
+    console.log(url.data.url);
+    // Post the image directly to the s3 bucket
+    await fetch(url.data.url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      body: file,
+    });
+    //Show image
+    const imageUrl = url.data.url.split("?")[0];
+    console.log(imageUrl);
+    setComprobante(imageUrl);
   };
 
   useEffect(() => {
@@ -65,9 +72,8 @@ export const PagoCrear = () => {
     monto: values.monto,
     fecha_pago: values.fecha,
     pago_id: values.concepto,
-    comprobante: "comprobante",
+    comprobante: comprobante,
     aprobado: true,
-    formDatav: formDatav,
   });
 
   useEffect(() => {
@@ -117,7 +123,7 @@ export const PagoCrear = () => {
                       {casas.map((casa) => {
                         return (
                           <option
-                            key={casa.casa}
+                            key={casa._id}
                             value={casa.casa}
                             label={casa.casa}
                           >
@@ -185,7 +191,7 @@ export const PagoCrear = () => {
               </tbody>
             </table>
             <input type="file" onChange={handleFile} />
-            <input id="button_enviar" type="file" accept="image/*" />
+
             <div className="botones_f">
               <button id="button_limpiar" type="reset">
                 Limpiar

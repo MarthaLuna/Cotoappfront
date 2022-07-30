@@ -32,7 +32,7 @@ export const BuscarResidentesPage = () => {
   }, [data]);
 
   return (
-    <div id="Home-Container">
+    <div className="bckGP">
       <NavAdmin />
       <div className="resultTable">
         <table>

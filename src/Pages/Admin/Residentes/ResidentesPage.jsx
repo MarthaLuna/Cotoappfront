@@ -13,7 +13,7 @@ export const ResidentesPage = () => {
 
   console.log("context", context);
   return (
-    <div id="Home-Container">
+    <div className="bckGP">
       <NavAdmin />
       <ResidenteHome />
       <Footer />
