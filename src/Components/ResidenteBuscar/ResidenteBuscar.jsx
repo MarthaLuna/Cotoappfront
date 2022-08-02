@@ -13,6 +13,7 @@ export const ResidenteBuscar = ({
   telefono,
   user,
   permisos,
+  setResidentes,
 }) => {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
@@ -23,7 +24,9 @@ export const ResidenteBuscar = ({
     const termUrl2 = encodeURIComponent(Object.values({ nombre })[0]);
 
     const result = await axios.delete(`${urlApi}/residentes/${termUrl}`);
-
+    setResidentes((residentes) =>
+      residentes.filter((residente) => residente._id !== termUrl)
+    );
     navigate(`/dashboard/admin/buscarResidente?name=${termUrl2}`);
   };
 

@@ -23,7 +23,7 @@ export const PagoBuscar = ({
 
     const result = await axios.delete(`${urlApi}/pagos/${termUrl}`);
 
-    navigate(`/dashboard/admin/buscarPago?mes=6`);
+    navigate(`/dashboard/admin/buscarPago?mes=7`);
   };
 
   const seeImage = () => {

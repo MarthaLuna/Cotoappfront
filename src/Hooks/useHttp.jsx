@@ -13,6 +13,7 @@ export const useHttp = (requestFunction, params = {}) => {
       setLoading(false);
       setData(response);
     } catch (error) {
+      console.log("Error en hook useHttp");
       setLoading(false);
       setError(error);
     }

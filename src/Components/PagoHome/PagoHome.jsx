@@ -12,7 +12,7 @@ export const PagoHome = () => {
 
   const handleSubmitmes = (e) => {
     e.preventDefault();
-    const fecha = new Date("Jul 12 2011");
+    const fecha = new Date();
     const mesActual = fecha.getMonth();
 
     console.log("mesActual", mesActual);

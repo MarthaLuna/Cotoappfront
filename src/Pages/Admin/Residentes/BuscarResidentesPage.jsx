@@ -48,7 +48,11 @@ export const BuscarResidentesPage = () => {
           </thead>
           <tbody>
             {residentes.map((residente) => (
-              <ResidenteBuscar key={residente._id} {...residente} />
+              <ResidenteBuscar
+                key={residente._id}
+                setResidentes={setResidentes}
+                {...residente}
+              />
             ))}
           </tbody>
         </table>

@@ -5,7 +5,6 @@ import { useHttp } from "../../Hooks/useHttp";
 import { crearRRequest } from "./Services/CrearResidenteService";
 
 import "./ResidenteCrear.scss";
-import useUser from "../../Hooks/useUser";
 
 export const ResidenteCrear = () => {
   const navigate = useNavigate();
@@ -41,6 +40,7 @@ export const ResidenteCrear = () => {
   });
 
   useEffect(() => {
+    console.log("data", data);
     if (data.success) {
       navigate(".");
       const source = document.getElementById("source");
@@ -55,6 +55,17 @@ export const ResidenteCrear = () => {
       source.innerText = "";
     }
   }, [data]);
+
+  useEffect(() => {
+    const source = document.getElementById("source");
+    source.innerText =
+      "Lo sentimos no se puede guardar sus datos, valide la información";
+  }, [error]);
+
+  useEffect(() => {
+    const source = document.getElementById("source");
+    source.innerText = "";
+  }, []);
 
   return (
     <div className="ResidenteCMain">
